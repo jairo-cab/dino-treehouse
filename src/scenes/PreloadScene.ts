@@ -77,6 +77,19 @@ export class PreloadScene extends Phaser.Scene {
     ictx.fillStyle = 'rgba(255,255,255,0.55)'; ictx.beginPath(); ictx.ellipse(205, 205, 52, 30, -0.7, 0, Math.PI * 2); ictx.fill();
     ic.refresh();
 
+    // graduation cap icon for the menu
+    const gc = this.textures.createCanvas('icon_grad', 600, 600)!;
+    const gx = gc.getContext();
+    gx.lineJoin = 'round'; gx.lineWidth = 18; gx.strokeStyle = '#6b3410';
+    gx.fillStyle = '#4a4a62';
+    gx.beginPath(); gx.moveTo(150, 330); gx.lineTo(150, 420); gx.quadraticCurveTo(300, 500, 450, 420); gx.lineTo(450, 330); gx.closePath(); gx.fill(); gx.stroke();
+    gx.fillStyle = '#34344a';
+    gx.beginPath(); gx.moveTo(300, 120); gx.lineTo(560, 230); gx.lineTo(300, 340); gx.lineTo(40, 230); gx.closePath(); gx.fill(); gx.stroke();
+    gx.strokeStyle = '#ffc233'; gx.lineWidth = 16; gx.lineCap = 'round';
+    gx.beginPath(); gx.moveTo(300, 230); gx.lineTo(500, 262); gx.lineTo(500, 400); gx.stroke();
+    gx.fillStyle = '#ffc233'; gx.beginPath(); gx.arc(500, 420, 26, 0, Math.PI * 2); gx.fill();
+    gc.refresh();
+
     this.scene.start('Hatch');
   }
 }

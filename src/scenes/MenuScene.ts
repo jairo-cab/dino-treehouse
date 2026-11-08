@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { DINOS, isOwned } from '../content/dinos';
-import { H, W, bubble, chip, cover, fitHeight, FONT_TITLE, motes, panel, shadow, speak, vignette } from '../ui/helpers';
+import { H, W, bubble, cover, fitHeight, FONT_TITLE, motes, panel, shadow, speak, vignette } from '../ui/helpers';
 
 const GAMES = [
   { scene: 'Bedroom', label: 'Toys', icon: 'icon_toys' },
@@ -9,6 +9,8 @@ const GAMES = [
   { scene: 'Count', label: 'Count', icon: 'icon_count' },
   { scene: 'Like', label: 'Like', icon: 'icon_like' },
   { scene: 'School', label: 'School', icon: 'obj_schoolbag' },
+  { scene: 'Read', label: 'Read', icon: 'obj_book_closed' },
+  { scene: 'Graduation', label: 'Test', icon: 'icon_grad' },
 ];
 
 /** Game picker: one illustrated card per game. */
@@ -25,27 +27,28 @@ export class MenuScene extends Phaser.Scene {
     const pip = fitHeight(this.add.image(W / 2, 1245, 'pip_happy'), 200).setOrigin(0.5, 1).setDepth(3);
     this.tweens.add({ targets: pip, y: 1228, duration: 160, yoyo: true, delay: 300 });
     const owned = DINOS.filter((d) => isOwned(d.key)).length;
-    chip(this, 590, 1190, 230, 96, `Dinos ${owned}/${DINOS.length}`, 36, () => this.scene.start('Dinos'), 'blue');
     pip.setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('Dinos'));
     bubble(this, W / 2, 150, 600, "Let's play!", 'lets-play');
     this.time.delayedCall(400, () => speak(this, 'lets-play'));
 
-    GAMES.forEach((g, i) => {
-      const x = i % 2 === 0 ? 195 : 525, y = 360 + Math.floor(i / 2) * 290;
+    // 3 columns x 3 rows: the 8 games and, in the last slot, the dino collection
+    const slots = [...GAMES, { scene: 'Dinos', label: `Dinos ${owned}/${DINOS.length}`, icon: 'pip_happy' }];
+    slots.forEach((g, i) => {
+      const x = 125 + (i % 3) * 235, y = 335 + Math.floor(i / 3) * 280;
       const card = this.add.container(x, y).setDepth(10);
-      const bg = panel(this, -157, -150, 314, 300);
-      const icon = this.add.image(0, -36, g.icon);
-      icon.setScale(220 / icon.width);
-      const label = this.add.text(0, 100, g.label, {
-        fontFamily: FONT_TITLE, fontSize: '50px', fontStyle: 'bold', color: '#5a3200',
+      const bg = panel(this, -110, -125, 220, 250);
+      const icon = this.add.image(0, -28, g.icon);
+      icon.setScale(Math.min(150 / icon.width, 140 / icon.height));
+      const label = this.add.text(0, 84, g.label, {
+        fontFamily: FONT_TITLE, fontSize: g.label.length > 8 ? '34px' : '42px', fontStyle: 'bold', color: '#5a3200',
       }).setOrigin(0.5);
-      const hit = this.add.rectangle(0, 0, 314, 300, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
+      const hit = this.add.rectangle(0, 0, 220, 250, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       card.add([bg, icon, label, hit]);
       hit.on('pointerdown', () => {
-        this.tweens.add({ targets: card, scale: 0.82, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
+        this.tweens.add({ targets: card, scale: 0.9, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
       });
       card.setScale(0.6).setAlpha(0);
-      this.tweens.add({ targets: card, scale: 0.88, alpha: 1, duration: 240, delay: 40 + i * 50, ease: 'Back.out' });
+      this.tweens.add({ targets: card, scale: 1, alpha: 1, duration: 240, delay: 40 + i * 45, ease: 'Back.out' });
     });
   }
 }

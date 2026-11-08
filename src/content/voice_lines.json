@@ -997,5 +997,145 @@
     "key": "pencil-case",
     "voice": "bf_emma",
     "text": "pencil case"
+  },
+  {
+    "key": "i-am-six",
+    "voice": "bf_emma",
+    "text": "I am six."
+  },
+  {
+    "key": "she-is-seven",
+    "voice": "bf_emma",
+    "text": "She is seven."
+  },
+  {
+    "key": "he-is-eight",
+    "voice": "bf_emma",
+    "text": "He is eight."
+  },
+  {
+    "key": "we-are-happy",
+    "voice": "bf_emma",
+    "text": "We are happy."
+  },
+  {
+    "key": "they-are-young",
+    "voice": "bf_emma",
+    "text": "They are young."
+  },
+  {
+    "key": "are-you-six-yes-i-am",
+    "voice": "bf_emma",
+    "text": "Are you six? Yes, I am."
+  },
+  {
+    "key": "is-she-sad-no-she-isnt",
+    "voice": "bf_emma",
+    "text": "Is she sad? No, she isn't."
+  },
+  {
+    "key": "she-isnt-happy",
+    "voice": "bf_emma",
+    "text": "She isn't happy."
+  },
+  {
+    "key": "this-is-lola-her-favourite-colour-is-orange",
+    "voice": "bf_emma",
+    "text": "This is Lola. Her favourite colour is orange."
+  },
+  {
+    "key": "this-is-bruno-his-favourite-toy-is-the-robot",
+    "voice": "bf_emma",
+    "text": "This is Bruno. His favourite toy is the robot."
+  },
+  {
+    "key": "whats-your-name-im-lola",
+    "voice": "bf_emma",
+    "text": "What's your name? I'm Lola."
+  },
+  {
+    "key": "this-is-ruby-her-schoolbag-is-blue",
+    "voice": "bf_emma",
+    "text": "This is Ruby. Her schoolbag is blue."
+  },
+  {
+    "key": "there-is-a-bed",
+    "voice": "bf_emma",
+    "text": "There is a bed."
+  },
+  {
+    "key": "there-are-three-balls",
+    "voice": "bf_emma",
+    "text": "There are three balls."
+  },
+  {
+    "key": "there-are-five-lamps",
+    "voice": "bf_emma",
+    "text": "There are five lamps."
+  },
+  {
+    "key": "there-is-a-robot",
+    "voice": "bf_emma",
+    "text": "There is a robot."
+  },
+  {
+    "key": "is-there-a-train-yes-there-is",
+    "voice": "bf_emma",
+    "text": "Is there a train? Yes, there is."
+  },
+  {
+    "key": "there-are-two-rugs",
+    "voice": "bf_emma",
+    "text": "There are two rugs."
+  },
+  {
+    "key": "he-likes-robots",
+    "voice": "bf_emma",
+    "text": "He likes robots."
+  },
+  {
+    "key": "she-doesnt-like-robots",
+    "voice": "bf_emma",
+    "text": "She doesn't like robots."
+  },
+  {
+    "key": "do-you-like-trains-yes-i-do",
+    "voice": "bf_emma",
+    "text": "Do you like trains? Yes, I do."
+  },
+  {
+    "key": "does-she-like-teddy-bears-yes-she-does",
+    "voice": "bf_emma",
+    "text": "Does she like teddy bears? Yes, she does."
+  },
+  {
+    "key": "she-is-happy",
+    "voice": "bf_emma",
+    "text": "She is happy."
+  },
+  {
+    "key": "he-is-sad",
+    "voice": "bf_emma",
+    "text": "He is sad."
+  },
+  {
+    "key": "she-is-nine",
+    "voice": "bf_emma",
+    "text": "She is nine."
+  },
+  {
+    "key": "she-likes-teddy-bears",
+    "voice": "bf_emma",
+    "text": "She likes teddy bears."
+  },
+  {
+    "key": "he-doesnt-like-balls",
+    "voice": "bf_emma",
+    "text": "He doesn't like balls."
+  },
+  {
+    "key": "they-are-sad",
+    "voice": "bf_emma",
+    "text": "They are sad."
   }
 ]

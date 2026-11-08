@@ -15,6 +15,8 @@ import { RewardScene } from './scenes/RewardScene';
 import { DinosScene } from './scenes/DinosScene';
 import { LikeScene } from './scenes/LikeScene';
 import { SchoolScene } from './scenes/SchoolScene';
+import { ReadScene } from './scenes/ReadScene';
+import { GraduationScene } from './scenes/GraduationScene';
 import { setupUpdater, showPill } from './ui/updater';
 
 async function start() {
@@ -25,7 +27,7 @@ async function start() {
   parent: 'game',
   backgroundColor: '#bfe8ff',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH, width: 720, height: 1280 },
-    scene: [BootScene, PreloadScene, HatchScene, BedroomScene, PaintScene, MenuScene, SpellScene, CountScene, RewardScene, DinosScene, LikeScene, SchoolScene],
+    scene: [BootScene, PreloadScene, HatchScene, BedroomScene, PaintScene, MenuScene, SpellScene, CountScene, RewardScene, DinosScene, LikeScene, SchoolScene, ReadScene, GraduationScene],
 });
 }
 

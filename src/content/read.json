@@ -1,0 +1,696 @@
+{
+ "complete": [
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "pip",
+     "happy"
+    ]
+   ],
+   "text": "I ___ six.",
+   "options": [
+    "am",
+    "is",
+    "are"
+   ],
+   "answer": "am"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "She ___ seven.",
+   "options": [
+    "is",
+    "are",
+    "am"
+   ],
+   "answer": "is"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "bruno",
+     "happy"
+    ]
+   ],
+   "text": "He ___ eight.",
+   "options": [
+    "is",
+    "are",
+    "am"
+   ],
+   "answer": "is"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "pip",
+     "happy"
+    ],
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "We ___ happy.",
+   "options": [
+    "are",
+    "is",
+    "am"
+   ],
+   "answer": "are"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "stego",
+     "happy"
+    ],
+    [
+     "brachio",
+     "happy"
+    ]
+   ],
+   "text": "They ___ young.",
+   "options": [
+    "are",
+    "is",
+    "am"
+   ],
+   "answer": "are"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "pip",
+     "happy"
+    ]
+   ],
+   "text": "Are you six? Yes, I ___.",
+   "options": [
+    "am",
+    "are",
+    "is"
+   ],
+   "answer": "am"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "Is she sad? No, she ___.",
+   "options": [
+    "isn't",
+    "is",
+    "aren't"
+   ],
+   "answer": "isn't"
+  },
+  {
+   "topic": "to be",
+   "dinos": [
+    [
+     "ruby",
+     "sad"
+    ]
+   ],
+   "text": "She ___ happy.",
+   "options": [
+    "isn't",
+    "is",
+    "am"
+   ],
+   "answer": "isn't"
+  },
+  {
+   "topic": "my / his / her",
+   "dinos": [
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "This is Lola. ___ favourite colour is orange.",
+   "options": [
+    "Her",
+    "His",
+    "My"
+   ],
+   "answer": "Her"
+  },
+  {
+   "topic": "my / his / her",
+   "dinos": [
+    [
+     "bruno",
+     "happy"
+    ]
+   ],
+   "text": "This is Bruno. ___ favourite toy is the robot.",
+   "options": [
+    "His",
+    "Her",
+    "My"
+   ],
+   "answer": "His"
+  },
+  {
+   "topic": "my / his / her",
+   "dinos": [
+    [
+     "pip",
+     "happy"
+    ]
+   ],
+   "text": "Hi! ___ name's Pip.",
+   "options": [
+    "My",
+    "His",
+    "Her"
+   ],
+   "answer": "My"
+  },
+  {
+   "topic": "my / his / her",
+   "dinos": [
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "What's ___ name? I'm Lola.",
+   "options": [
+    "your",
+    "my",
+    "her"
+   ],
+   "answer": "your"
+  },
+  {
+   "topic": "my / his / her",
+   "dinos": [
+    [
+     "ruby",
+     "happy"
+    ]
+   ],
+   "text": "This is Ruby. ___ schoolbag is blue.",
+   "options": [
+    "Her",
+    "His",
+    "Your"
+   ],
+   "answer": "Her"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_bed",
+   "count": 1,
+   "text": "There ___ a bed.",
+   "options": [
+    "is",
+    "are",
+    "am"
+   ],
+   "answer": "is"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_ball",
+   "count": 3,
+   "text": "There ___ three balls.",
+   "options": [
+    "are",
+    "is",
+    "am"
+   ],
+   "answer": "are"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_lamp",
+   "count": 5,
+   "text": "There ___ five lamps.",
+   "options": [
+    "are",
+    "is",
+    "am"
+   ],
+   "answer": "are"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_robot",
+   "count": 1,
+   "text": "There ___ a robot.",
+   "options": [
+    "is",
+    "are",
+    "am"
+   ],
+   "answer": "is"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_train",
+   "count": 1,
+   "text": "Is there a train? Yes, there ___.",
+   "options": [
+    "is",
+    "are",
+    "isn't"
+   ],
+   "answer": "is"
+  },
+  {
+   "topic": "there is / are",
+   "obj": "obj_rug",
+   "count": 2,
+   "text": "There ___ two rugs.",
+   "options": [
+    "are",
+    "is",
+    "am"
+   ],
+   "answer": "are"
+  },
+  {
+   "topic": "like",
+   "dinos": [
+    [
+     "bruno",
+     "happy"
+    ]
+   ],
+   "text": "He ___ robots.",
+   "options": [
+    "likes",
+    "like",
+    "liking"
+   ],
+   "answer": "likes"
+  },
+  {
+   "topic": "like",
+   "dinos": [
+    [
+     "lola",
+     "sad"
+    ]
+   ],
+   "text": "She doesn't ___ robots.",
+   "options": [
+    "like",
+    "likes",
+    "is"
+   ],
+   "answer": "like"
+  },
+  {
+   "topic": "like",
+   "dinos": [
+    [
+     "pip",
+     "happy"
+    ]
+   ],
+   "text": "Do you like trains? Yes, I ___.",
+   "options": [
+    "do",
+    "does",
+    "am"
+   ],
+   "answer": "do"
+  },
+  {
+   "topic": "like",
+   "dinos": [
+    [
+     "lola",
+     "happy"
+    ]
+   ],
+   "text": "Does she like teddy bears? Yes, she ___.",
+   "options": [
+    "does",
+    "do",
+    "is"
+   ],
+   "answer": "does"
+  }
+ ],
+ "circle": [
+  {
+   "topic": "he / she",
+   "text": "She is happy.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "lola",
+       "happy"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "lola",
+       "sad"
+      ]
+     ]
+    }
+   ],
+   "answer": 1
+  },
+  {
+   "topic": "he / she",
+   "text": "He is sad.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "lola",
+       "sad"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "sad"
+      ]
+     ]
+    }
+   ],
+   "answer": 2
+  },
+  {
+   "topic": "age",
+   "text": "He is eight.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ],
+     "badge": "6"
+    },
+    {
+     "dinos": [
+      [
+       "bruno",
+       "happy"
+      ]
+     ],
+     "badge": "8"
+    },
+    {
+     "dinos": [
+      [
+       "lola",
+       "happy"
+      ]
+     ],
+     "badge": "7"
+    }
+   ],
+   "answer": 1
+  },
+  {
+   "topic": "age",
+   "text": "She is nine.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "lola",
+       "happy"
+      ]
+     ],
+     "badge": "7"
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ],
+     "badge": "6"
+    },
+    {
+     "dinos": [
+      [
+       "ruby",
+       "happy"
+      ]
+     ],
+     "badge": "9"
+    }
+   ],
+   "answer": 2
+  },
+  {
+   "topic": "like",
+   "text": "She likes teddy bears.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "ruby",
+       "happy"
+      ]
+     ],
+     "objs": [
+      "obj_teddy_bear"
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "lola",
+       "sad"
+      ]
+     ],
+     "objs": [
+      "obj_train"
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "bruno",
+       "happy"
+      ]
+     ],
+     "objs": [
+      "obj_ball"
+     ]
+    }
+   ],
+   "answer": 0
+  },
+  {
+   "topic": "like",
+   "text": "He doesn't like balls.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "pip",
+       "sad"
+      ]
+     ],
+     "objs": [
+      "obj_ball"
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ],
+     "objs": [
+      "obj_train"
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "lola",
+       "sad"
+      ]
+     ],
+     "objs": [
+      "obj_ball"
+     ]
+    }
+   ],
+   "answer": 0
+  },
+  {
+   "topic": "we / they",
+   "text": "We are happy.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "pip",
+       "sad"
+      ],
+      [
+       "lola",
+       "sad"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ],
+      [
+       "lola",
+       "happy"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "pip",
+       "happy"
+      ]
+     ]
+    }
+   ],
+   "answer": 1
+  },
+  {
+   "topic": "we / they",
+   "text": "They are sad.",
+   "options": [
+    {
+     "dinos": [
+      [
+       "bruno",
+       "happy"
+      ],
+      [
+       "ruby",
+       "happy"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "bruno",
+       "sad"
+      ]
+     ]
+    },
+    {
+     "dinos": [
+      [
+       "bruno",
+       "sad"
+      ],
+      [
+       "ruby",
+       "sad"
+      ]
+     ]
+    }
+   ],
+   "answer": 2
+  },
+  {
+   "topic": "there is / are",
+   "text": "There are three balls.",
+   "options": [
+    {
+     "objs": [
+      "obj_ball"
+     ]
+    },
+    {
+     "objs": [
+      "obj_ball",
+      "obj_ball",
+      "obj_ball"
+     ]
+    },
+    {
+     "objs": [
+      "obj_ball",
+      "obj_ball"
+     ]
+    }
+   ],
+   "answer": 1
+  },
+  {
+   "topic": "there is / are",
+   "text": "There is a robot.",
+   "options": [
+    {
+     "objs": [
+      "obj_robot",
+      "obj_robot"
+     ]
+    },
+    {
+     "objs": [
+      "obj_robot"
+     ]
+    },
+    {
+     "objs": [
+      "obj_robot",
+      "obj_robot",
+      "obj_robot"
+     ]
+    }
+   ],
+   "answer": 1
+  }
+ ]
+}
