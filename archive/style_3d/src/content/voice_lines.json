@@ -1,0 +1,18 @@
+[
+  {"key": "pip-hi", "voice": "bm_lewis", "text": "Hi!"},
+  {"key": "hi-my-names-pip", "voice": "bm_lewis", "text": "Hi! My name's Pip."},
+  {"key": "im-six-years-old", "voice": "bm_lewis", "text": "I'm six years old."},
+  {"key": "whats-your-name", "voice": "bm_lewis", "text": "What's your name?"},
+  {"key": "lets-play", "voice": "bm_lewis", "text": "Let's play!"},
+  {"key": "put-the-teddy-bear-on-the-bed", "voice": "bf_emma", "text": "Put the teddy bear on the bed."},
+  {"key": "put-the-ball-on-the-rug", "voice": "bf_emma", "text": "Put the ball on the rug."},
+  {"key": "put-the-robot-in-front-of-the-bookcase", "voice": "bf_emma", "text": "Put the robot in front of the bookcase."},
+  {"key": "put-the-train-on-the-rug", "voice": "bf_emma", "text": "Put the train on the rug."},
+  {"key": "put-the-robot-on-the-bed", "voice": "bf_emma", "text": "Put the robot on the bed."},
+  {"key": "put-the-teddy-bear-in-front-of-the-bookcase", "voice": "bf_emma", "text": "Put the teddy bear in front of the bookcase."},
+  {"key": "well-done", "voice": "bf_emma", "text": "Well done!"},
+  {"key": "great", "voice": "bf_emma", "text": "Great!"},
+  {"key": "yes", "voice": "bf_emma", "text": "Yes!"},
+  {"key": "super", "voice": "bf_emma", "text": "Super!"},
+  {"key": "try-again", "voice": "bf_emma", "text": "Try again!"}
+]

@@ -1,0 +1,337 @@
+[
+  {
+    "key": "pip-hi",
+    "voice": "bf_lily",
+    "text": "Hi!",
+    "pitch": 1.38
+  },
+  {
+    "key": "hi-my-names-pip",
+    "voice": "bf_lily",
+    "text": "Hi! My name's Pip.",
+    "pitch": 1.38
+  },
+  {
+    "key": "im-six-years-old",
+    "voice": "bf_lily",
+    "text": "I'm six years old.",
+    "pitch": 1.38
+  },
+  {
+    "key": "whats-your-name",
+    "voice": "bf_lily",
+    "text": "What's your name?",
+    "pitch": 1.38
+  },
+  {
+    "key": "lets-play",
+    "voice": "bf_lily",
+    "text": "Let's play!",
+    "pitch": 1.38
+  },
+  {
+    "key": "put-the-teddy-bear-on-the-bed",
+    "voice": "bf_emma",
+    "text": "Put the teddy bear on the bed."
+  },
+  {
+    "key": "put-the-ball-on-the-rug",
+    "voice": "bf_emma",
+    "text": "Put the ball on the rug."
+  },
+  {
+    "key": "put-the-robot-in-front-of-the-bookcase",
+    "voice": "bf_emma",
+    "text": "Put the robot in front of the bookcase."
+  },
+  {
+    "key": "put-the-train-on-the-rug",
+    "voice": "bf_emma",
+    "text": "Put the train on the rug."
+  },
+  {
+    "key": "put-the-robot-on-the-bed",
+    "voice": "bf_emma",
+    "text": "Put the robot on the bed."
+  },
+  {
+    "key": "put-the-teddy-bear-in-front-of-the-bookcase",
+    "voice": "bf_emma",
+    "text": "Put the teddy bear in front of the bookcase."
+  },
+  {
+    "key": "well-done",
+    "voice": "bf_emma",
+    "text": "Well done!"
+  },
+  {
+    "key": "great",
+    "voice": "bf_emma",
+    "text": "Great!"
+  },
+  {
+    "key": "yes",
+    "voice": "bf_emma",
+    "text": "Yes!"
+  },
+  {
+    "key": "super",
+    "voice": "bf_emma",
+    "text": "Super!"
+  },
+  {
+    "key": "try-again",
+    "voice": "bf_emma",
+    "text": "Try again!"
+  },
+  {
+    "key": "colour-the-ball-red",
+    "voice": "bf_emma",
+    "text": "Colour the ball red."
+  },
+  {
+    "key": "colour-the-bed-blue",
+    "voice": "bf_emma",
+    "text": "Colour the bed blue."
+  },
+  {
+    "key": "colour-the-lamp-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the lamp yellow."
+  },
+  {
+    "key": "colour-the-rug-green",
+    "voice": "bf_emma",
+    "text": "Colour the rug green."
+  },
+  {
+    "key": "colour-the-teddy-bear-brown",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear brown."
+  },
+  {
+    "key": "colour-the-robot-orange",
+    "voice": "bf_emma",
+    "text": "Colour the robot orange."
+  },
+  {
+    "key": "black",
+    "voice": "bf_emma",
+    "text": "Black."
+  },
+  {
+    "key": "blue",
+    "voice": "bf_emma",
+    "text": "Blue."
+  },
+  {
+    "key": "brown",
+    "voice": "bf_emma",
+    "text": "Brown."
+  },
+  {
+    "key": "green",
+    "voice": "bf_emma",
+    "text": "Green."
+  },
+  {
+    "key": "orange",
+    "voice": "bf_emma",
+    "text": "Orange."
+  },
+  {
+    "key": "red",
+    "voice": "bf_emma",
+    "text": "Red."
+  },
+  {
+    "key": "white",
+    "voice": "bf_emma",
+    "text": "White."
+  },
+  {
+    "key": "yellow",
+    "voice": "bf_emma",
+    "text": "Yellow."
+  },
+  {
+    "key": "ball",
+    "voice": "bf_emma",
+    "text": "Ball."
+  },
+  {
+    "key": "bed",
+    "voice": "bf_emma",
+    "text": "Bed."
+  },
+  {
+    "key": "lamp",
+    "voice": "bf_emma",
+    "text": "Lamp."
+  },
+  {
+    "key": "rug",
+    "voice": "bf_emma",
+    "text": "Rug."
+  },
+  {
+    "key": "robot",
+    "voice": "bf_emma",
+    "text": "Robot."
+  },
+  {
+    "key": "train",
+    "voice": "bf_emma",
+    "text": "Train."
+  },
+  {
+    "key": "listen-and-write",
+    "voice": "bf_emma",
+    "text": "Listen and write."
+  },
+  {
+    "key": "one",
+    "voice": "bf_emma",
+    "text": "One."
+  },
+  {
+    "key": "two",
+    "voice": "bf_emma",
+    "text": "Two."
+  },
+  {
+    "key": "three",
+    "voice": "bf_emma",
+    "text": "Three."
+  },
+  {
+    "key": "four",
+    "voice": "bf_emma",
+    "text": "Four."
+  },
+  {
+    "key": "five",
+    "voice": "bf_emma",
+    "text": "Five."
+  },
+  {
+    "key": "six",
+    "voice": "bf_emma",
+    "text": "Six."
+  },
+  {
+    "key": "seven",
+    "voice": "bf_emma",
+    "text": "Seven."
+  },
+  {
+    "key": "eight",
+    "voice": "bf_emma",
+    "text": "Eight."
+  },
+  {
+    "key": "nine",
+    "voice": "bf_emma",
+    "text": "Nine."
+  },
+  {
+    "key": "ten",
+    "voice": "bf_emma",
+    "text": "Ten."
+  },
+  {
+    "key": "how-many-balls",
+    "voice": "bf_emma",
+    "text": "How many balls?"
+  },
+  {
+    "key": "how-many-beds",
+    "voice": "bf_emma",
+    "text": "How many beds?"
+  },
+  {
+    "key": "how-many-lamps",
+    "voice": "bf_emma",
+    "text": "How many lamps?"
+  },
+  {
+    "key": "how-many-rugs",
+    "voice": "bf_emma",
+    "text": "How many rugs?"
+  },
+  {
+    "key": "how-many-robots",
+    "voice": "bf_emma",
+    "text": "How many robots?"
+  },
+  {
+    "key": "how-many-trains",
+    "voice": "bf_emma",
+    "text": "How many trains?"
+  },
+  {
+    "key": "i-like-the-train",
+    "voice": "bf_lily",
+    "text": "I like the train.",
+    "pitch": 1.38
+  },
+  {
+    "key": "hi-my-names-lola",
+    "voice": "bf_isabella",
+    "text": "Hi! My name's Lola.",
+    "pitch": 1.3
+  },
+  {
+    "key": "im-seven-years-old",
+    "voice": "bf_isabella",
+    "text": "I'm seven years old.",
+    "pitch": 1.3
+  },
+  {
+    "key": "i-like-the-ball",
+    "voice": "bf_isabella",
+    "text": "I like the ball.",
+    "pitch": 1.3
+  },
+  {
+    "key": "hi-my-names-bruno",
+    "voice": "bm_lewis",
+    "text": "Hi! My name's Bruno.",
+    "pitch": 1.25
+  },
+  {
+    "key": "im-eight-years-old",
+    "voice": "bm_lewis",
+    "text": "I'm eight years old.",
+    "pitch": 1.25
+  },
+  {
+    "key": "i-like-the-robot",
+    "voice": "bm_lewis",
+    "text": "I like the robot.",
+    "pitch": 1.25
+  },
+  {
+    "key": "hi-my-names-ruby",
+    "voice": "bf_alice",
+    "text": "Hi! My name's Ruby.",
+    "pitch": 1.3
+  },
+  {
+    "key": "im-nine-years-old",
+    "voice": "bf_alice",
+    "text": "I'm nine years old.",
+    "pitch": 1.3
+  },
+  {
+    "key": "i-like-the-teddy-bear",
+    "voice": "bf_alice",
+    "text": "I like the teddy bear.",
+    "pitch": 1.3
+  },
+  {
+    "key": "new-egg",
+    "voice": "bf_emma",
+    "text": "New egg!"
+  }
+]
