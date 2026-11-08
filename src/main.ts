@@ -13,6 +13,7 @@ import { SpellScene } from './scenes/SpellScene';
 import { CountScene } from './scenes/CountScene';
 import { RewardScene } from './scenes/RewardScene';
 import { DinosScene } from './scenes/DinosScene';
+import { LikeScene } from './scenes/LikeScene';
 import { setupUpdater } from './ui/updater';
 
 async function start() {
@@ -23,7 +24,7 @@ async function start() {
   parent: 'game',
   backgroundColor: '#bfe8ff',
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH, width: 720, height: 1280 },
-    scene: [BootScene, PreloadScene, HatchScene, BedroomScene, PaintScene, MenuScene, SpellScene, CountScene, RewardScene, DinosScene],
+    scene: [BootScene, PreloadScene, HatchScene, BedroomScene, PaintScene, MenuScene, SpellScene, CountScene, RewardScene, DinosScene, LikeScene],
 });
 }
 

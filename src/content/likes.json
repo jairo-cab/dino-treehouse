@@ -1,0 +1,9 @@
+{
+  "toys": { "teddy_bear": "teddy bears", "ball": "balls", "robot": "robots", "train": "trains" },
+  "dinos": {
+    "pip":   { "he": true,  "voice": "bf_lily",     "pitch": 1.38, "likes": ["train", "robot"],      "dislikes": ["ball", "teddy_bear"] },
+    "lola":  { "he": false, "voice": "bf_isabella", "pitch": 1.3,  "likes": ["ball", "teddy_bear"],  "dislikes": ["train", "robot"] },
+    "bruno": { "he": true,  "voice": "bm_lewis",    "pitch": 1.25, "likes": ["robot", "ball"],       "dislikes": ["train", "teddy_bear"] },
+    "ruby":  { "he": false, "voice": "bf_alice",    "pitch": 1.3,  "likes": ["teddy_bear", "train"], "dislikes": ["ball", "robot"] }
+  }
+}

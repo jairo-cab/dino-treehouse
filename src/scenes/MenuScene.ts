@@ -7,6 +7,7 @@ const GAMES = [
   { scene: 'Paint', label: 'Paint', icon: 'icon_paint' },
   { scene: 'Spell', label: 'Write', icon: 'icon_write' },
   { scene: 'Count', label: 'Count', icon: 'icon_count' },
+  { scene: 'Like', label: 'Like', icon: 'icon_like' },
 ];
 
 /** Game picker: one illustrated card per game. */
@@ -20,7 +21,7 @@ export class MenuScene extends Phaser.Scene {
     motes(this);
     vignette(this);
     shadow(this, W / 2, 1245, 260, 0.4);
-    const pip = fitHeight(this.add.image(W / 2, 1245, 'pip_happy'), 230).setOrigin(0.5, 1).setDepth(3);
+    const pip = fitHeight(this.add.image(W / 2, 1245, 'pip_happy'), 200).setOrigin(0.5, 1).setDepth(3);
     this.tweens.add({ targets: pip, y: 1228, duration: 160, yoyo: true, delay: 300 });
     const owned = DINOS.filter((d) => isOwned(d.key)).length;
     chip(this, 590, 1190, 230, 96, `Dinos ${owned}/${DINOS.length}`, 36, () => this.scene.start('Dinos'), 'blue');
@@ -29,15 +30,15 @@ export class MenuScene extends Phaser.Scene {
     this.time.delayedCall(400, () => speak(this, 'lets-play'));
 
     GAMES.forEach((g, i) => {
-      const x = i % 2 === 0 ? 195 : 525, y = i < 2 ? 470 : 830;
+      const x = i % 2 === 0 ? 195 : 525, y = 400 + Math.floor(i / 2) * 330;
       const card = this.add.container(x, y).setDepth(10);
-      const bg = panel(this, -157, -168, 314, 336);
-      const icon = this.add.image(0, -42, g.icon);
-      icon.setScale(268 / icon.width);
-      const label = this.add.text(0, 122, g.label, {
-        fontFamily: FONT_TITLE, fontSize: '56px', fontStyle: 'bold', color: '#5a3200',
+      const bg = panel(this, -157, -150, 314, 300);
+      const icon = this.add.image(0, -36, g.icon);
+      icon.setScale(220 / icon.width);
+      const label = this.add.text(0, 100, g.label, {
+        fontFamily: FONT_TITLE, fontSize: '50px', fontStyle: 'bold', color: '#5a3200',
       }).setOrigin(0.5);
-      const hit = this.add.rectangle(0, 0, 314, 336, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
+      const hit = this.add.rectangle(0, 0, 314, 300, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       card.add([bg, icon, label, hit]);
       hit.on('pointerdown', () => {
         this.tweens.add({ targets: card, scale: 0.94, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });

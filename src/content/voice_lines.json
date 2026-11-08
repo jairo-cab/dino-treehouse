@@ -333,5 +333,209 @@
     "key": "new-egg",
     "voice": "bf_emma",
     "text": "New egg!"
+  },
+  {
+    "key": "pip-i-like-trains-a-toy-for-me-please",
+    "voice": "bf_lily",
+    "text": "I like trains. A toy for me, please!",
+    "pitch": 1.38
+  },
+  {
+    "key": "pip-i-like-robots-a-toy-for-me-please",
+    "voice": "bf_lily",
+    "text": "I like robots. A toy for me, please!",
+    "pitch": 1.38
+  },
+  {
+    "key": "pip-i-dont-like-balls",
+    "voice": "bf_lily",
+    "text": "I don't like balls.",
+    "pitch": 1.38
+  },
+  {
+    "key": "pip-i-dont-like-teddy-bears",
+    "voice": "bf_lily",
+    "text": "I don't like teddy bears.",
+    "pitch": 1.38
+  },
+  {
+    "key": "pip-i-dont-like-balls-i-dont-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_lily",
+    "text": "I don't like balls. I don't like teddy bears. A toy for me, please!",
+    "pitch": 1.38
+  },
+  {
+    "key": "pip-thank-you",
+    "voice": "bf_lily",
+    "text": "Thank you!",
+    "pitch": 1.38
+  },
+  {
+    "key": "lola-i-like-balls-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I like balls. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "lola-i-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I like teddy bears. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "lola-i-dont-like-trains",
+    "voice": "bf_isabella",
+    "text": "I don't like trains.",
+    "pitch": 1.3
+  },
+  {
+    "key": "lola-i-dont-like-robots",
+    "voice": "bf_isabella",
+    "text": "I don't like robots.",
+    "pitch": 1.3
+  },
+  {
+    "key": "lola-i-dont-like-trains-i-dont-like-robots-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I don't like trains. I don't like robots. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "lola-thank-you",
+    "voice": "bf_isabella",
+    "text": "Thank you!",
+    "pitch": 1.3
+  },
+  {
+    "key": "bruno-i-like-robots-a-toy-for-me-please",
+    "voice": "bm_lewis",
+    "text": "I like robots. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "bruno-i-like-balls-a-toy-for-me-please",
+    "voice": "bm_lewis",
+    "text": "I like balls. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "bruno-i-dont-like-trains",
+    "voice": "bm_lewis",
+    "text": "I don't like trains.",
+    "pitch": 1.25
+  },
+  {
+    "key": "bruno-i-dont-like-teddy-bears",
+    "voice": "bm_lewis",
+    "text": "I don't like teddy bears.",
+    "pitch": 1.25
+  },
+  {
+    "key": "bruno-i-dont-like-trains-i-dont-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bm_lewis",
+    "text": "I don't like trains. I don't like teddy bears. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "bruno-thank-you",
+    "voice": "bm_lewis",
+    "text": "Thank you!",
+    "pitch": 1.25
+  },
+  {
+    "key": "ruby-i-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I like teddy bears. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "ruby-i-like-trains-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I like trains. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "ruby-i-dont-like-balls",
+    "voice": "bf_alice",
+    "text": "I don't like balls.",
+    "pitch": 1.3
+  },
+  {
+    "key": "ruby-i-dont-like-robots",
+    "voice": "bf_alice",
+    "text": "I don't like robots.",
+    "pitch": 1.3
+  },
+  {
+    "key": "ruby-i-dont-like-balls-i-dont-like-robots-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I don't like balls. I don't like robots. A toy for me, please!",
+    "pitch": 1.3
+  },
+  {
+    "key": "ruby-thank-you",
+    "voice": "bf_alice",
+    "text": "Thank you!",
+    "pitch": 1.3
+  },
+  {
+    "key": "does-he-like-teddy-bears",
+    "voice": "bf_emma",
+    "text": "Does he like teddy bears?"
+  },
+  {
+    "key": "does-he-like-balls",
+    "voice": "bf_emma",
+    "text": "Does he like balls?"
+  },
+  {
+    "key": "does-he-like-robots",
+    "voice": "bf_emma",
+    "text": "Does he like robots?"
+  },
+  {
+    "key": "does-he-like-trains",
+    "voice": "bf_emma",
+    "text": "Does he like trains?"
+  },
+  {
+    "key": "yes-he-does",
+    "voice": "bf_emma",
+    "text": "Yes, he does."
+  },
+  {
+    "key": "no-he-doesnt",
+    "voice": "bf_emma",
+    "text": "No, he doesn't."
+  },
+  {
+    "key": "does-she-like-teddy-bears",
+    "voice": "bf_emma",
+    "text": "Does she like teddy bears?"
+  },
+  {
+    "key": "does-she-like-balls",
+    "voice": "bf_emma",
+    "text": "Does she like balls?"
+  },
+  {
+    "key": "does-she-like-robots",
+    "voice": "bf_emma",
+    "text": "Does she like robots?"
+  },
+  {
+    "key": "does-she-like-trains",
+    "voice": "bf_emma",
+    "text": "Does she like trains?"
+  },
+  {
+    "key": "yes-she-does",
+    "voice": "bf_emma",
+    "text": "Yes, she does."
+  },
+  {
+    "key": "no-she-doesnt",
+    "voice": "bf_emma",
+    "text": "No, she doesn't."
   }
 ]

@@ -17,7 +17,7 @@ function showPill(onTap: () => void) {
   b.id = 'update-pill';
   b.textContent = '✨ New version! Tap to update';
   b.style.cssText = [
-    'position:fixed', 'top:max(12px,env(safe-area-inset-top))', 'left:50%', 'transform:translateX(-50%)',
+    'position:fixed', 'bottom:max(14px,env(safe-area-inset-bottom))', 'left:50%', 'transform:translateX(-50%)',
     'z-index:10', 'padding:12px 22px', 'border:0', 'border-radius:999px', 'background:#ff9f1c', 'color:#fff',
     'font:700 18px Fredoka,sans-serif', 'box-shadow:0 4px 0 #c97a00,0 8px 18px rgba(0,0,0,.25)', 'cursor:pointer',
     'touch-action:manipulation',

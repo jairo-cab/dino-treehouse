@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import voiceLines from '../content/voice_lines.json';
 import { FONT_TITLE, H, W } from '../ui/helpers';
+import { heartPath } from './LikeScene';
 
 const IMAGES = [
   'bg_bedroom', 'egg_closed', 'egg_cracked', 'egg_open',
@@ -64,6 +65,15 @@ export class PreloadScene extends Phaser.Scene {
     vgr.addColorStop(1, 'rgba(70,35,0,0.30)');
     vctx.fillStyle = vgr; vctx.fillRect(0, 0, 180, 320);
     vg.refresh();
+
+    // placeholder icon for the Like game (heart); can be swapped for an illustrated one later
+    const ic = this.textures.createCanvas('icon_like', 600, 600)!;
+    const ictx = ic.getContext();
+    heartPath(ictx, 300, 300, 215);
+    ictx.fillStyle = '#ff5470'; ictx.fill();
+    ictx.lineWidth = 18; ictx.strokeStyle = '#6b3410'; ictx.lineJoin = 'round'; ictx.stroke();
+    ictx.fillStyle = 'rgba(255,255,255,0.55)'; ictx.beginPath(); ictx.ellipse(205, 205, 52, 30, -0.7, 0, Math.PI * 2); ictx.fill();
+    ic.refresh();
 
     this.scene.start('Hatch');
   }
