@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
+import { TASTES } from '../content/likes';
 import { DINOS, introKeys, introLines, isOwned, resetCollection } from '../content/dinos';
-import { H, W, bubble, burst, chip, cover, fitHeight, FONT_TITLE, homeButton, motes, panel, speak, vignette } from '../ui/helpers';
+import { H, W, bubble, burst, chip, cover, dinoBow, fitHeight, FONT_TITLE, homeButton, motes, panel, speak, vignette } from '../ui/helpers';
 
 /** The collection: owned dinos in colour (tap to hear them), the rest as mystery silhouettes. */
 export class DinosScene extends Phaser.Scene {
@@ -28,6 +29,7 @@ export class DinosScene extends Phaser.Scene {
       pic.setScale(Math.min(190 / pic.height, 215 / pic.width));
       pic.y = 150;
       if (!own) { pic.setTint(0x3a2c20); pic.setAlpha(0.4); }
+      else dinoBow(this, pic, TASTES[d.key]?.he === false, cell);
       const name = this.add.text(0, 180, own ? d.name : '?', { fontFamily: FONT_TITLE, fontSize: '42px', fontStyle: 'bold', color: '#5a3200' }).setOrigin(0.5);
       cell.add([pic, name]);
       if (own) {

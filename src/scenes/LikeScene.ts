@@ -5,7 +5,7 @@ import {
   THANKS, TASTES, answer, dinoKey, narratorKey, question, sayDislike, sayDislikes, sayLike, type Toy,
 } from '../content/likes';
 import { offerEgg } from '../ui/reward';
-import { W, bubble, burst, button, chip, cover, fitHeight, homeButton, panel, popIn, progress, speak } from '../ui/helpers';
+import { W, bubble, burst, button, chip, cover, dinoBow, fitHeight, homeButton, panel, popIn, progress, speak } from '../ui/helpers';
 
 type Kind = 'give' | 'give2' | 'ask';
 interface Round { kind: Kind; dino: Dino; likeToy?: Toy; toy?: Toy; yes?: boolean }
@@ -36,6 +36,7 @@ export class LikeScene extends Phaser.Scene {
     panel(this, 24, 270, W - 48, 480);
     this.rounds = this.makeRounds();
     this.dinoImg = fitHeight(this.add.image(W / 2, 1262, 'pip_neutral'), 400).setOrigin(0.5, 1).setDepth(3);
+    this.bowOn = '';
     this.startRound();
   }
 
@@ -55,7 +56,18 @@ export class LikeScene extends Phaser.Scene {
     });
   }
 
-  private face(f: 'neutral' | 'happy' | 'sad' | 'surprised') { this.dinoImg.setTexture(`${this.round.dino.key}_${f}`); }
+  private bowOn = '';
+  private face(f: 'neutral' | 'happy' | 'sad' | 'surprised') {
+    this.dinoImg.setTexture(`${this.round.dino.key}_${f}`);
+    if (this.bowOn !== this.round.dino.key) { this.bowOn = this.round.dino.key; this.dinoBowFor(); }
+  }
+  private bowGfx?: Phaser.GameObjects.Graphics;
+  private dinoBowFor() { /* the bow follows the sprite; it is re-created for each new dino */
+    this.bowGfx?.destroy();
+    const before = new Set(this.children.list);
+    dinoBow(this, this.dinoImg, !TASTES[this.round.dino.key].he);
+    this.bowGfx = this.children.list.find((c) => !before.has(c) && c instanceof Phaser.GameObjects.Graphics) as Phaser.GameObjects.Graphics | undefined;
+  }
 
   private startRound() {
     this.prog.set(this.index);
@@ -111,6 +123,7 @@ export class LikeScene extends Phaser.Scene {
       bg.fillStyle(like ? 0x7ed99a : 0xff9a9a, 0.4).fillRoundedRect(48, y - 92, W - 96, 184, 40);
       bg.lineStyle(6, like ? 0x37b863 : 0xe5384f, 0.8).strokeRoundedRect(48, y - 92, W - 96, 184, 40);
       const face = fitHeight(this.add.image(135, y, `${key}_${like ? 'happy' : 'sad'}`), 150);
+      dinoBow(this, face, !t.he);
       this.roundObjs.push(bg, face);
       const imgs = toys.map((toy, i) => {
         const im = this.add.image(330 + i * 190, y, `obj_${toy}`);

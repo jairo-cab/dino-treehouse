@@ -247,3 +247,53 @@ export function speakerButton(scene: Phaser.Scene, x: number, y: number, r: numb
   hit.on('pointerdown', () => { scene.tweens.add({ targets: [g, icon], scale: 0.88, duration: 70, yoyo: true }); onTap(); });
   return c;
 }
+
+// ---- girl / boy cue: the girl dinos wear a red bow, the boys don't (so "she" / "he" can be read from the picture)
+const topCache = new Map<string, { x: number; y: number }>();
+/** Where the highest point of a sprite is (x = centre of its top 4%), in texture pixels. */
+function topAnchor(scene: Phaser.Scene, texKey: string): { x: number; y: number } {
+  const hit = topCache.get(texKey);
+  if (hit) return hit;
+  const src = scene.textures.get(texKey).getSourceImage() as HTMLImageElement;
+  const c = document.createElement('canvas');
+  c.width = src.width; c.height = src.height;
+  const ctx = c.getContext('2d', { willReadFrequently: true })!;
+  ctx.drawImage(src, 0, 0);
+  const data = ctx.getImageData(0, 0, c.width, c.height).data;
+  let top = -1;
+  for (let y = 0; y < c.height && top < 0; y++) for (let x = 0; x < c.width; x++) if (data[(y * c.width + x) * 4 + 3] > 140) { top = y; break; }
+  let sum = 0, n = 0;
+  const band = top + Math.max(6, Math.round(c.height * 0.04));
+  for (let y = Math.max(0, top); y < Math.min(c.height, band); y++) for (let x = 0; x < c.width; x++) if (data[(y * c.width + x) * 4 + 3] > 140) { sum += x; n++; }
+  const a = { x: n ? sum / n : c.width / 2, y: Math.max(0, top) };
+  topCache.set(texKey, a);
+  return a;
+}
+
+/** Puts a red bow on a girl dino's head and keeps it attached while the sprite moves, scales or is destroyed. */
+export function dinoBow(scene: Phaser.Scene, img: Phaser.GameObjects.Image, isGirl: boolean, parent?: Phaser.GameObjects.Container): void {
+  if (!isGirl) return;
+  const g = scene.add.graphics().setDepth(img.depth + 0.5);
+  parent?.add(g);
+  const draw = () => {
+    g.clear();
+    const s = Math.max(14, Math.min(40, img.displayWidth * 0.13));
+    const red = img.texture.key.startsWith('ptero');          // a red bow would vanish on the red dino
+    g.fillStyle(red ? 0xffd23f : 0xe5384f, 1).lineStyle(Math.max(2, s * 0.12), red ? 0x7a4b12 : 0x7a1d2a, 1);
+    g.fillTriangle(0, 0, -s * 1.1, -s * 0.7, -s * 1.1, s * 0.7).strokeTriangle(0, 0, -s * 1.1, -s * 0.7, -s * 1.1, s * 0.7);
+    g.fillTriangle(0, 0, s * 1.1, -s * 0.7, s * 1.1, s * 0.7).strokeTriangle(0, 0, s * 1.1, -s * 0.7, s * 1.1, s * 0.7);
+    g.fillCircle(0, 0, s * 0.42).strokeCircle(0, 0, s * 0.42);
+  };
+  const place = () => {
+    if (!img.active) { g.destroy(); scene.events.off('update', place); return; }
+    if (!g.getData('drawn') || g.getData('w') !== img.displayWidth) { draw(); g.setData('drawn', true).setData('w', img.displayWidth); }
+    const a = topAnchor(scene, img.texture.key);
+    const sx = img.scaleX, sy = img.scaleY;
+    const lx = img.x + (a.x - img.width * img.originX) * sx;
+    const ly = img.y + (a.y - img.height * img.originY) * sy + img.displayWidth * 0.06;
+    g.setPosition(lx, ly).setVisible(img.visible && img.alpha > 0.05);
+  };
+  scene.events.on('update', place);
+  scene.events.once('shutdown', () => scene.events.off('update', place));
+  place();
+}
