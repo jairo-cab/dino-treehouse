@@ -21,14 +21,14 @@ export class DinosScene extends Phaser.Scene {
     panel(this, 24, 220, W - 48, 860);
     this.resetButton();
     DINOS.forEach((d, i) => {
-      const x = i % 2 === 0 ? 195 : 525, y = i < 2 ? 520 : 900;
+      const x = 120 + (i % 3) * 240, y = 330 + Math.floor(i / 3) * 270;
       const own = isOwned(d.key);
       const cell = this.add.container(x, y).setDepth(10);
       const pic = this.add.image(0, 0, `${d.key}_${own ? 'happy' : 'neutral'}`).setOrigin(0.5, 1);
-      pic.setScale(280 / pic.height);
+      pic.setScale(Math.min(190 / pic.height, 215 / pic.width));
       pic.y = 150;
       if (!own) { pic.setTint(0x3a2c20); pic.setAlpha(0.4); }
-      const name = this.add.text(0, 180, own ? d.name : '?', { fontFamily: FONT_TITLE, fontSize: '52px', fontStyle: 'bold', color: '#5a3200' }).setOrigin(0.5);
+      const name = this.add.text(0, 180, own ? d.name : '?', { fontFamily: FONT_TITLE, fontSize: '42px', fontStyle: 'bold', color: '#5a3200' }).setOrigin(0.5);
       cell.add([pic, name]);
       if (own) {
         pic.setInteractive({ useHandCursor: true });
@@ -40,7 +40,7 @@ export class DinosScene extends Phaser.Scene {
 
   /** "Hold to start again": press and hold 2 seconds to forget the collection (a quick tap does nothing, so it can't happen by accident). */
   private resetButton() {
-    const y = 1180, w = 420;
+    const y = 1140, w = 420;
     const c = chip(this, W / 2, y, w, 84, 'Hold to start again', 32, () => {}, 'white');
     const fill = this.add.rectangle(W / 2 - w / 2, y + 52, 0, 10, 0xff9a2e).setOrigin(0, 0.5).setDepth(11);
     let tween: Phaser.Tweens.Tween | undefined;

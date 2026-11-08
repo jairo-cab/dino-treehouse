@@ -50,7 +50,7 @@ export class RewardScene extends Phaser.Scene {
     this.pic.setScale(0.02);
     const tex = this.textures.get(`${key}_surprised`).getSourceImage();
     this.tweens.add({
-      targets: this.pic, scale: 560 / tex.height, y: 900, duration: 520, ease: 'Back.out',
+      targets: this.pic, scale: Math.min(560 / tex.height, 640 / tex.width), y: 900, duration: 520, ease: 'Back.out',
       onComplete: () => {
         this.busy = false; this.showLine();
         this.input.on('pointerdown', (_p: Phaser.Input.Pointer, over: Phaser.GameObjects.GameObject[]) => {

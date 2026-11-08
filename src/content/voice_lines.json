@@ -537,5 +537,275 @@
     "key": "no-she-doesnt",
     "voice": "bf_emma",
     "text": "No, she doesn't."
+  },
+  {
+    "key": "stego-i-like-balls-a-toy-for-me-please",
+    "voice": "bm_george",
+    "text": "I like balls. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "stego-i-like-trains-a-toy-for-me-please",
+    "voice": "bm_george",
+    "text": "I like trains. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "stego-i-dont-like-robots",
+    "voice": "bm_george",
+    "text": "I don't like robots.",
+    "pitch": 1.25
+  },
+  {
+    "key": "stego-i-dont-like-teddy-bears",
+    "voice": "bm_george",
+    "text": "I don't like teddy bears.",
+    "pitch": 1.25
+  },
+  {
+    "key": "stego-i-dont-like-robots-i-dont-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bm_george",
+    "text": "I don't like robots. I don't like teddy bears. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "stego-thank-you",
+    "voice": "bm_george",
+    "text": "Thank you!",
+    "pitch": 1.25
+  },
+  {
+    "key": "brachio-i-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_emma",
+    "text": "I like teddy bears. A toy for me, please!",
+    "pitch": 1.4
+  },
+  {
+    "key": "brachio-i-like-robots-a-toy-for-me-please",
+    "voice": "bf_emma",
+    "text": "I like robots. A toy for me, please!",
+    "pitch": 1.4
+  },
+  {
+    "key": "brachio-i-dont-like-balls",
+    "voice": "bf_emma",
+    "text": "I don't like balls.",
+    "pitch": 1.4
+  },
+  {
+    "key": "brachio-i-dont-like-trains",
+    "voice": "bf_emma",
+    "text": "I don't like trains.",
+    "pitch": 1.4
+  },
+  {
+    "key": "brachio-i-dont-like-balls-i-dont-like-trains-a-toy-for-me-please",
+    "voice": "bf_emma",
+    "text": "I don't like balls. I don't like trains. A toy for me, please!",
+    "pitch": 1.4
+  },
+  {
+    "key": "brachio-thank-you",
+    "voice": "bf_emma",
+    "text": "Thank you!",
+    "pitch": 1.4
+  },
+  {
+    "key": "ptero-i-like-trains-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I like trains. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "ptero-i-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I like teddy bears. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "ptero-i-dont-like-balls",
+    "voice": "bf_alice",
+    "text": "I don't like balls.",
+    "pitch": 1.45
+  },
+  {
+    "key": "ptero-i-dont-like-robots",
+    "voice": "bf_alice",
+    "text": "I don't like robots.",
+    "pitch": 1.45
+  },
+  {
+    "key": "ptero-i-dont-like-balls-i-dont-like-robots-a-toy-for-me-please",
+    "voice": "bf_alice",
+    "text": "I don't like balls. I don't like robots. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "ptero-thank-you",
+    "voice": "bf_alice",
+    "text": "Thank you!",
+    "pitch": 1.45
+  },
+  {
+    "key": "shadow-i-like-robots-a-toy-for-me-please",
+    "voice": "bm_fable",
+    "text": "I like robots. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "shadow-i-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bm_fable",
+    "text": "I like teddy bears. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "shadow-i-dont-like-balls",
+    "voice": "bm_fable",
+    "text": "I don't like balls.",
+    "pitch": 1.25
+  },
+  {
+    "key": "shadow-i-dont-like-trains",
+    "voice": "bm_fable",
+    "text": "I don't like trains.",
+    "pitch": 1.25
+  },
+  {
+    "key": "shadow-i-dont-like-balls-i-dont-like-trains-a-toy-for-me-please",
+    "voice": "bm_fable",
+    "text": "I don't like balls. I don't like trains. A toy for me, please!",
+    "pitch": 1.25
+  },
+  {
+    "key": "shadow-thank-you",
+    "voice": "bm_fable",
+    "text": "Thank you!",
+    "pitch": 1.25
+  },
+  {
+    "key": "para-i-like-trains-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I like trains. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "para-i-like-robots-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I like robots. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "para-i-dont-like-balls",
+    "voice": "bf_isabella",
+    "text": "I don't like balls.",
+    "pitch": 1.45
+  },
+  {
+    "key": "para-i-dont-like-teddy-bears",
+    "voice": "bf_isabella",
+    "text": "I don't like teddy bears.",
+    "pitch": 1.45
+  },
+  {
+    "key": "para-i-dont-like-balls-i-dont-like-teddy-bears-a-toy-for-me-please",
+    "voice": "bf_isabella",
+    "text": "I don't like balls. I don't like teddy bears. A toy for me, please!",
+    "pitch": 1.45
+  },
+  {
+    "key": "para-thank-you",
+    "voice": "bf_isabella",
+    "text": "Thank you!",
+    "pitch": 1.45
+  },
+  {
+    "key": "hi-my-names-blu",
+    "voice": "bm_george",
+    "text": "Hi! My name's Blu.",
+    "pitch": 1.25
+  },
+  {
+    "key": "im-five-years-old",
+    "voice": "bm_george",
+    "text": "I'm five years old.",
+    "pitch": 1.25
+  },
+  {
+    "key": "i-like-balls",
+    "voice": "bm_george",
+    "text": "I like balls.",
+    "pitch": 1.25
+  },
+  {
+    "key": "hi-my-names-sunny",
+    "voice": "bf_emma",
+    "text": "Hi! My name's Sunny.",
+    "pitch": 1.4
+  },
+  {
+    "key": "im-four-years-old",
+    "voice": "bf_emma",
+    "text": "I'm four years old.",
+    "pitch": 1.4
+  },
+  {
+    "key": "i-like-teddy-bears",
+    "voice": "bf_emma",
+    "text": "I like teddy bears.",
+    "pitch": 1.4
+  },
+  {
+    "key": "hi-my-names-rosie",
+    "voice": "bf_alice",
+    "text": "Hi! My name's Rosie.",
+    "pitch": 1.45
+  },
+  {
+    "key": "im-three-years-old",
+    "voice": "bf_alice",
+    "text": "I'm three years old.",
+    "pitch": 1.45
+  },
+  {
+    "key": "i-like-trains",
+    "voice": "bf_alice",
+    "text": "I like trains.",
+    "pitch": 1.45
+  },
+  {
+    "key": "hi-my-names-inky",
+    "voice": "bm_fable",
+    "text": "Hi! My name's Inky.",
+    "pitch": 1.25
+  },
+  {
+    "key": "im-two-years-old",
+    "voice": "bm_fable",
+    "text": "I'm two years old.",
+    "pitch": 1.25
+  },
+  {
+    "key": "i-like-robots",
+    "voice": "bm_fable",
+    "text": "I like robots.",
+    "pitch": 1.25
+  },
+  {
+    "key": "hi-my-names-snowy",
+    "voice": "bf_isabella",
+    "text": "Hi! My name's Snowy.",
+    "pitch": 1.45
+  },
+  {
+    "key": "i-like-trains-and-robots",
+    "voice": "bf_isabella",
+    "text": "I like trains and robots.",
+    "pitch": 1.45
+  },
+  {
+    "key": "im-one-year-old",
+    "voice": "bf_isabella",
+    "text": "I'm one year old.",
+    "pitch": 1.45
   }
 ]

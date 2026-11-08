@@ -1,6 +1,7 @@
 """Cut a "5 faces in a row" sheet into 5 game-ready transparent WebP files.
 
     .venv/bin/python tools/slice_sheet.py art/dinos/trice_sheet.jpg trice
+    .venv/bin/python tools/slice_sheet.py art/dinos/stego_sheet.jpg stego --grid=6 --drop=3   # 3x2 grid, ignore the 4th piece
 
 Writes assets/processed/<prefix>_{neutral,happy,sad,surprised,talk}.webp
 All five pieces share the SAME canvas size and baseline, so swapping faces in the game never makes
@@ -46,7 +47,7 @@ def split_columns(alpha: Image.Image, n: int) -> list[tuple[int, int]]:
     return list(zip(cuts[:-1], cuts[1:]))
 
 
-def split_components(alpha: Image.Image, n: int):
+def split_components(alpha: Image.Image, n: int, grid: bool = False):
     """Label the separate shapes in the sheet (one per character) so neighbours never leak into each other.
     Returns n (mask, bbox) pairs sorted left to right, or None if the characters touch each other."""
     f = 4
@@ -75,7 +76,12 @@ def split_components(alpha: Image.Image, n: int):
     if len(big) < n or len(big[-1]) < len(big[0]) * 0.25:
         return None
     result = []
-    for pts in sorted(big, key=lambda c: sum(x for x, _ in c) / len(c)):
+    if grid:   # row-major order: top row left->right, then bottom row left->right
+        mid_y = sh / 2
+        order = sorted(big, key=lambda c: (sum(y for _, y in c) / len(c) > mid_y, sum(x for x, _ in c) / len(c)))
+    else:
+        order = sorted(big, key=lambda c: sum(x for x, _ in c) / len(c))
+    for pts in order:
         m = Image.new('L', (sw, sh), 0)
         mp = m.load()
         for x, y in pts:
@@ -86,15 +92,39 @@ def split_components(alpha: Image.Image, n: int):
     return result
 
 
-def main(sheet_path: str, prefix: str, names: list[str] | None = None) -> None:
+def flood_cut(sheet: Image.Image) -> Image.Image:
+    """For WHITE characters on a white sheet (rembg eats them): background = near-white pixels connected to the sheet edge."""
+    rgb = sheet.convert('RGB')
+    near_white = rgb.point(lambda v: 255 if v >= 243 else 0).convert('L')
+    near_white = ImageChops.darker(ImageChops.darker(rgb.getchannel('R').point(lambda v: 255 if v >= 243 else 0),
+                                                    rgb.getchannel('G').point(lambda v: 255 if v >= 243 else 0)),
+                                   rgb.getchannel('B').point(lambda v: 255 if v >= 243 else 0))
+    bg = near_white.copy()
+    for pt in [(0, 0), (bg.width - 1, 0), (0, bg.height - 1), (bg.width - 1, bg.height - 1)]:
+        if bg.getpixel(pt) == 255: ImageDraw.floodfill(bg, pt, 128)
+    # flood from every border pixel too (the sheet's white margin can be split by characters)
+    for x in range(0, bg.width, 8):
+        for y in (0, bg.height - 1):
+            if bg.getpixel((x, y)) == 255: ImageDraw.floodfill(bg, (x, y), 128)
+    alpha = bg.point(lambda v: 0 if v == 128 else 255).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.8))
+    out = rgb.convert('RGBA'); out.putalpha(alpha)
+    return out
+
+
+def main(sheet_path: str, prefix: str, names: list[str] | None = None, grid: int = 0, drop: int = -1, flood: bool = False) -> None:
+    """grid=6 -> the sheet is a 3x2 grid of 6 characters (row-major); drop = index of the one to ignore (a duplicate face)."""
     global FACES
     if names: FACES = names
     os.makedirs(OUT, exist_ok=True)
     sheet = Image.open(sheet_path).convert('RGB')
-    cut = remove(sheet, session=new_session('u2net'), post_process_mask=True)   # RGBA for the whole sheet
-    cut = fill_holes(cut, sheet)
+    if flood:
+        cut = flood_cut(sheet)
+    else:
+        cut = remove(sheet, session=new_session('u2net'), post_process_mask=True)   # RGBA for the whole sheet
+        cut = fill_holes(cut, sheet)
     alpha = cut.getchannel('A')
-    comps = split_components(alpha, len(FACES))
+    comps = split_components(alpha, grid or len(FACES), grid=bool(grid))
+    if comps and drop >= 0: comps = [c for i, c in enumerate(comps) if i != drop]
     pieces = []
     if comps:
         for mask, bbox in comps:
@@ -107,6 +137,16 @@ def main(sheet_path: str, prefix: str, names: list[str] | None = None) -> None:
             piece = cut.crop((x0, 0, x1, cut.height))
             pieces.append((piece, piece.getchannel('A').point(lambda v: 255 if v > 10 else 0).getbbox()))
         pieces = [(Image.new('RGBA', cut.size, (0, 0, 0, 0)), None)] * 0 + pieces
+
+    if grid:   # pieces come from different rows: align them by their feet on one common canvas first
+        mw = max(b[2] - b[0] for _, b in pieces); mh = max(b[3] - b[1] for _, b in pieces)
+        aligned = []
+        for piece, b in pieces:
+            c = Image.new('RGBA', (mw, mh), (0, 0, 0, 0))
+            crop = piece.crop(b)
+            c.paste(crop, ((mw - crop.width) // 2, mh - crop.height), crop)
+            aligned.append((c, (0, 0, mw, mh)))
+        pieces = aligned
 
     # one shared canvas: same height for all, centred horizontally
     top = min(b[1] for _, b in pieces)
@@ -125,4 +165,6 @@ def main(sheet_path: str, prefix: str, names: list[str] | None = None) -> None:
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], sys.argv[3:] or None)
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    opts = dict((a[2:].split('=') + [''])[:2] for a in sys.argv[1:] if a.startswith('--'))
+    main(args[0], args[1], args[2:] or None, int(opts.get('grid', 0)), int(opts.get('drop', -1)), 'flood' in opts)

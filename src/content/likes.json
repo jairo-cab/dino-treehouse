@@ -1,9 +1,152 @@
 {
-  "toys": { "teddy_bear": "teddy bears", "ball": "balls", "robot": "robots", "train": "trains" },
+  "toys": {
+    "teddy_bear": "teddy bears",
+    "ball": "balls",
+    "robot": "robots",
+    "train": "trains"
+  },
   "dinos": {
-    "pip":   { "he": true,  "voice": "bf_lily",     "pitch": 1.38, "likes": ["train", "robot"],      "dislikes": ["ball", "teddy_bear"] },
-    "lola":  { "he": false, "voice": "bf_isabella", "pitch": 1.3,  "likes": ["ball", "teddy_bear"],  "dislikes": ["train", "robot"] },
-    "bruno": { "he": true,  "voice": "bm_lewis",    "pitch": 1.25, "likes": ["robot", "ball"],       "dislikes": ["train", "teddy_bear"] },
-    "ruby":  { "he": false, "voice": "bf_alice",    "pitch": 1.3,  "likes": ["teddy_bear", "train"], "dislikes": ["ball", "robot"] }
+    "pip": {
+      "he": true,
+      "voice": "bf_lily",
+      "pitch": 1.38,
+      "likes": [
+        "train",
+        "robot"
+      ],
+      "dislikes": [
+        "ball",
+        "teddy_bear"
+      ]
+    },
+    "lola": {
+      "he": false,
+      "voice": "bf_isabella",
+      "pitch": 1.3,
+      "likes": [
+        "ball",
+        "teddy_bear"
+      ],
+      "dislikes": [
+        "train",
+        "robot"
+      ]
+    },
+    "bruno": {
+      "he": true,
+      "voice": "bm_lewis",
+      "pitch": 1.25,
+      "likes": [
+        "robot",
+        "ball"
+      ],
+      "dislikes": [
+        "train",
+        "teddy_bear"
+      ]
+    },
+    "ruby": {
+      "he": false,
+      "voice": "bf_alice",
+      "pitch": 1.3,
+      "likes": [
+        "teddy_bear",
+        "train"
+      ],
+      "dislikes": [
+        "ball",
+        "robot"
+      ]
+    },
+    "stego": {
+      "he": true,
+      "voice": "bm_george",
+      "pitch": 1.25,
+      "likes": [
+        "ball",
+        "train"
+      ],
+      "dislikes": [
+        "robot",
+        "teddy_bear"
+      ],
+      "intro": {
+        "name": "Blu",
+        "age": "five",
+        "likes": "balls"
+      }
+    },
+    "brachio": {
+      "he": false,
+      "voice": "bf_emma",
+      "pitch": 1.4,
+      "likes": [
+        "teddy_bear",
+        "robot"
+      ],
+      "dislikes": [
+        "ball",
+        "train"
+      ],
+      "intro": {
+        "name": "Sunny",
+        "age": "four",
+        "likes": "teddy bears"
+      }
+    },
+    "ptero": {
+      "he": false,
+      "voice": "bf_alice",
+      "pitch": 1.45,
+      "likes": [
+        "train",
+        "teddy_bear"
+      ],
+      "dislikes": [
+        "ball",
+        "robot"
+      ],
+      "intro": {
+        "name": "Rosie",
+        "age": "three",
+        "likes": "trains"
+      }
+    },
+    "shadow": {
+      "he": true,
+      "voice": "bm_fable",
+      "pitch": 1.25,
+      "likes": [
+        "robot",
+        "teddy_bear"
+      ],
+      "dislikes": [
+        "ball",
+        "train"
+      ],
+      "intro": {
+        "name": "Inky",
+        "age": "two",
+        "likes": "robots"
+      }
+    },
+    "para": {
+      "he": false,
+      "voice": "bf_isabella",
+      "pitch": 1.45,
+      "likes": [
+        "train",
+        "robot"
+      ],
+      "dislikes": [
+        "ball",
+        "teddy_bear"
+      ],
+      "intro": {
+        "name": "Snowy",
+        "age": "one",
+        "likes": "trains and robots"
+      }
+    }
   }
 }

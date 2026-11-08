@@ -22,6 +22,12 @@ for d, v in likes['dinos'].items():
     texts.append('Thank you!')
     for t in texts:
         want.append((f'{d}-{slug(t)}', v['voice'], t, v['pitch']))
+# hatch introductions of the dinos that have an "intro" entry (key = slug of the sentence, like the first four dinos)
+for d, v in likes['dinos'].items():
+    if 'intro' in v:
+        i = v['intro']
+        for t in (f"Hi! My name's {i['name']}.", f"I'm {i['age']} {'year' if i['age'] == 'one' else 'years'} old.", f"I like {i['likes']}."):
+            want.append((slug(t), v['voice'], t, v['pitch']))
 for pron in ('he', 'she'):
     for t in plural:
         q = f'Does {pron} like {plural[t]}?'

@@ -9,6 +9,7 @@ const IMAGES = [
   'obj_bed', 'obj_lamp', 'obj_rug', 'obj_teddy_bear', 'obj_ball', 'obj_robot', 'obj_train',
   'obj_bookcase', 'obj_window', 'obj_door',
   'lola_neutral', 'lola_happy', 'lola_sad', 'lola_surprised', 'lola_talk', 'bruno_neutral', 'bruno_happy', 'bruno_sad', 'bruno_surprised', 'bruno_talk', 'ruby_neutral', 'ruby_happy', 'ruby_sad', 'ruby_surprised', 'ruby_talk',
+  'stego_neutral', 'stego_happy', 'stego_sad', 'stego_surprised', 'stego_talk', 'brachio_neutral', 'brachio_happy', 'brachio_sad', 'brachio_surprised', 'brachio_talk', 'ptero_neutral', 'ptero_happy', 'ptero_sad', 'ptero_surprised', 'ptero_talk', 'shadow_neutral', 'shadow_happy', 'shadow_sad', 'shadow_surprised', 'shadow_talk', 'para_neutral', 'para_happy', 'para_sad', 'para_surprised', 'para_talk',
   'icon_toys', 'icon_paint', 'icon_write', 'icon_count',
   'paint_ball', 'paint_bed', 'paint_lamp', 'paint_rug', 'paint_teddy_bear', 'paint_robot',
 ];
