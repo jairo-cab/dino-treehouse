@@ -13,6 +13,7 @@ import { SpellScene } from './scenes/SpellScene';
 import { CountScene } from './scenes/CountScene';
 import { RewardScene } from './scenes/RewardScene';
 import { DinosScene } from './scenes/DinosScene';
+import { setupUpdater } from './ui/updater';
 
 async function start() {
   // text is drawn once: wait for the fonts so it never shows in a fallback font
@@ -25,6 +26,8 @@ async function start() {
     scene: [BootScene, PreloadScene, HatchScene, BedroomScene, PaintScene, MenuScene, SpellScene, CountScene, RewardScene, DinosScene],
 });
 }
+
+setupUpdater();
 
 // handy for automated checks in the browser console
 void start().then((game) => { (window as unknown as { __game: Phaser.Game }).__game = game; });

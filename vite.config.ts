@@ -6,7 +6,7 @@ export default defineConfig({
   build: { chunkSizeWarningLimit: 1500 },
   plugins: [
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       manifest: {
         name: 'Dino Treehouse',
         short_name: 'Dino House',
