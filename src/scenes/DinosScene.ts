@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { DINOS, introKeys, introLines, isOwned } from '../content/dinos';
-import { H, W, bubble, burst, cover, fitHeight, FONT_TITLE, homeButton, motes, panel, speak, vignette } from '../ui/helpers';
+import { DINOS, introKeys, introLines, isOwned, resetCollection } from '../content/dinos';
+import { H, W, bubble, burst, chip, cover, fitHeight, FONT_TITLE, homeButton, motes, panel, speak, vignette } from '../ui/helpers';
 
 /** The collection: owned dinos in colour (tap to hear them), the rest as mystery silhouettes. */
 export class DinosScene extends Phaser.Scene {
@@ -19,6 +19,7 @@ export class DinosScene extends Phaser.Scene {
       fontFamily: FONT_TITLE, fontSize: '64px', fontStyle: 'bold', color: '#fff6e4', stroke: '#6a4a20', strokeThickness: 12,
     }).setOrigin(0.5);
     panel(this, 24, 220, W - 48, 860);
+    this.resetButton();
     DINOS.forEach((d, i) => {
       const x = i % 2 === 0 ? 195 : 525, y = i < 2 ? 520 : 900;
       const own = isOwned(d.key);
@@ -35,6 +36,24 @@ export class DinosScene extends Phaser.Scene {
         if (data?.just === d.key) { burst(this, x, y - 40, 24); this.tweens.add({ targets: pic, y: 130, duration: 160, yoyo: true, repeat: 2 }); }
       }
     });
+  }
+
+  /** "Hold to start again": press and hold 2 seconds to forget the collection (a quick tap does nothing, so it can't happen by accident). */
+  private resetButton() {
+    const y = 1180, w = 420;
+    const c = chip(this, W / 2, y, w, 84, 'Hold to start again', 32, () => {}, 'white');
+    const fill = this.add.rectangle(W / 2 - w / 2, y + 52, 0, 10, 0xff9a2e).setOrigin(0, 0.5).setDepth(11);
+    let tween: Phaser.Tweens.Tween | undefined;
+    const stop = () => { tween?.stop(); tween = undefined; fill.width = 0; };
+    const hit = c.list[0] as Phaser.GameObjects.Rectangle;
+    hit.on('pointerdown', () => {
+      stop();
+      tween = this.tweens.add({
+        targets: fill, width: w, duration: 2000,
+        onComplete: () => { resetCollection(); this.sound.stopAll(); this.scene.restart(); },
+      });
+    });
+    hit.on('pointerup', stop); hit.on('pointerout', stop);
   }
 
   /** Tap a dino: it says its three sentences one after the other. */

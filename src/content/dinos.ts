@@ -35,6 +35,11 @@ export function unlock(key: string): void {
   if (!u.includes(key)) mem = [...u, key];
   try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch { /* private mode: lives only until the page closes */ }
 }
+/** Forget every dino won so far (the child starts the egg challenge again). */
+export function resetCollection(): void {
+  mem = [];
+  try { localStorage.removeItem(KEY); } catch { /* ignore */ }
+}
 export const isOwned = (key: string): boolean => key === 'pip' || unlocked().includes(key);
 /** Next dino the child has not won yet (null when the collection is complete). */
 export const nextEgg = (): Dino | null => EARNABLE.find((d) => !unlocked().includes(d.key)) ?? null;
