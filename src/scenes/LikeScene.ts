@@ -101,24 +101,25 @@ export class LikeScene extends Phaser.Scene {
     this.roundObjs.push(...imgs);
   }
 
-  /** Little "likes board": ♥ row = likes, crossed ♥ row = doesn't like. */
-  private drawBoard(dinoKey_: string) {
-    const t = TASTES[dinoKey_];
+  /** "Likes board": green row = the dino smiling with the toys it likes, red row = the dino sad with the toys it doesn't. */
+  private drawBoard(key: string) {
+    const t = TASTES[key];
     const rows: [Toy[], boolean][] = [[t.likes, true], [t.dislikes, false]];
     rows.forEach(([toys, like], r) => {
-      const y = 400 + r * 230;
-      const badge = this.add.image(120, y, heartTexture(this, like)).setScale(0.9);
-      this.roundObjs.push(badge);
+      const y = 395 + r * 215;
+      const bg = this.add.graphics();
+      bg.fillStyle(like ? 0x7ed99a : 0xff9a9a, 0.4).fillRoundedRect(48, y - 92, W - 96, 184, 40);
+      bg.lineStyle(6, like ? 0x37b863 : 0xe5384f, 0.8).strokeRoundedRect(48, y - 92, W - 96, 184, 40);
+      const face = fitHeight(this.add.image(135, y, `${key}_${like ? 'happy' : 'sad'}`), 150);
+      this.roundObjs.push(bg, face);
       const imgs = toys.map((toy, i) => {
-        const im = this.add.image(290 + i * 190, y, `obj_${toy}`);
-        im.setScale(Math.min(150 / im.width, 150 / im.height));
+        const im = this.add.image(330 + i * 190, y, `obj_${toy}`);
+        im.setScale(Math.min(140 / im.width, 140 / im.height));
         return im;
       });
       popIn(this, imgs, r * 150, 70);
       this.roundObjs.push(...imgs);
     });
-    const line = this.add.rectangle(W / 2 + 40, 515, 520, 4, 0x000000, 0.1);
-    this.roundObjs.push(line);
   }
 
   private tapToy(toy: Toy, im: Phaser.GameObjects.Image) {
@@ -196,25 +197,6 @@ export class LikeScene extends Phaser.Scene {
     button(this, W / 2 + 170, 760, 300, 'Menu', () => this.scene.start('Menu'));
     offerEgg(this, W / 2 + 40, 1000, 250);
   }
-}
-
-/** A heart badge (liked) or a crossed-out heart (disliked), drawn once. */
-export function heartTexture(scene: Phaser.Scene, liked: boolean): string {
-  const key = liked ? 'badge_like' : 'badge_dislike';
-  if (scene.textures.exists(key)) return key;
-  const tex = scene.textures.createCanvas(key, 140, 140)!;
-  const c = tex.getContext();
-  heartPath(c, 70, 70, 52);
-  c.fillStyle = liked ? '#ff4d6d' : '#b9b3ad'; c.fill();
-  c.lineWidth = 7; c.strokeStyle = '#5a3200'; c.stroke();
-  if (liked) { c.fillStyle = 'rgba(255,255,255,0.5)'; c.beginPath(); c.ellipse(46, 48, 11, 7, -0.6, 0, Math.PI * 2); c.fill(); }
-  else {
-    c.lineCap = 'round';
-    c.strokeStyle = '#5a3200'; c.lineWidth = 20; c.beginPath(); c.moveTo(28, 28); c.lineTo(112, 112); c.stroke();
-    c.strokeStyle = '#e5384f'; c.lineWidth = 12; c.beginPath(); c.moveTo(28, 28); c.lineTo(112, 112); c.stroke();
-  }
-  tex.refresh();
-  return key;
 }
 
 export function heartPath(c: CanvasRenderingContext2D, cx: number, cy: number, s: number) {
