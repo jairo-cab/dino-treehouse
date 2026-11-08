@@ -3,8 +3,7 @@ import { DINOS, isOwned } from '../content/dinos';
 import { PRAISE, slug } from '../content/bedroom';
 import { CIRCLE, COMPLETE, circleKey, filled, filledKey, type Circle, type Complete, type Option, type DinoPic } from '../content/read';
 import { offerEgg } from '../ui/reward';
-import { FONT_TITLE, W, bubble, burst, button, chip, cover, dinoBow, fitHeight, homeButton, panel, progress, speak } from '../ui/helpers';
-import { TASTES } from '../content/likes';
+import { FONT_TITLE, W, bubble, burst, button, chip, cover, fitHeight, homeButton, panel, progress, speak } from '../ui/helpers';
 
 type Round = { kind: 'complete'; c: Complete } | { kind: 'circle'; c: Circle };
 
@@ -134,7 +133,6 @@ export class ReadScene extends Phaser.Scene {
         const x = W / 2 + (i - (dinos.length - 1) / 2) * 280;
         const im = this.add.image(x, y + 150, `${key}_${isOwnedFace(key, face)}`).setOrigin(0.5, 1).setDepth(5);
         im.setScale(Math.min(330 / im.height, 300 / im.width));
-        dinoBow(this, im, isGirl(key));
         this.objs.push(im);
       });
     }
@@ -158,7 +156,6 @@ export class ReadScene extends Phaser.Scene {
       const im = this.add.image(dx + (i - (dinos.length - 1) / 2) * gap, 105, `${key}_${isOwnedFace(key, face)}`).setOrigin(0.5, 1);
       im.setScale(Math.min(215 / im.height, 200 / im.width));
       card.add(im);
-      dinoBow(this, im, isGirl(key), card);
     });
     const size = both ? 100 : Math.min(150, 560 / Math.max(1, objs.length));
     objs.forEach((o, i) => {
@@ -214,8 +211,6 @@ export class ReadScene extends Phaser.Scene {
 
   protected ceremony() { /* overridden by GraduationScene */ }
 }
-
-const isGirl = (key: string): boolean => TASTES[key]?.he === false;
 
 /** Faces exist for every dino; keep a safe fallback so a typo in the bank never shows a missing texture. */
 function isOwnedFace(key: string, face: string): string {
