@@ -8,6 +8,10 @@ const LINES: Line[] = [
   { text: "Let's play!", audio: 'lets-play', face: 'pip_happy' },
 ];
 
+const SEEN = 'dino-treehouse-intro-seen';
+const introSeen = (): boolean => { try { return localStorage.getItem(SEEN) === '1'; } catch { return false; } };
+const markIntroSeen = (): void => { try { localStorage.setItem(SEEN, '1'); } catch { /* ignore */ } };
+
 export class HatchScene extends Phaser.Scene {
   private egg!: Phaser.GameObjects.Image;
   private taps = 0;
@@ -20,6 +24,9 @@ export class HatchScene extends Phaser.Scene {
   constructor() { super('Hatch'); }
 
   create() {
+    this.taps = 0; this.busy = false; this.lineIndex = 0; this.pip = undefined;
+    // the egg intro is only for the very first time: after that, straight to the menu
+    if (introSeen()) { this.scene.start('Menu'); return; }
     this.cameras.main.fadeIn(180);
     cover(this, 'bg_bedroom');
     this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0.12);
@@ -82,6 +89,7 @@ export class HatchScene extends Phaser.Scene {
     this.lineIndex++;
     if (this.lineIndex >= LINES.length) {
       this.busy = true;
+      markIntroSeen();
       this.cameras.main.fadeOut(400);
       this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('Menu'));
       return;

@@ -11,11 +11,11 @@ export function setupUpdater() {
   });
 }
 
-function showPill(onTap: () => void) {
-  if (document.getElementById('update-pill')) return;
+export function showPill(onTap: () => void, text = '✨ New version! Tap to update', id = 'update-pill') {
+  if (document.getElementById(id)) return;
   const b = document.createElement('button');
-  b.id = 'update-pill';
-  b.textContent = '✨ New version! Tap to update';
+  b.id = id;
+  b.textContent = text;
   b.style.cssText = [
     'position:fixed', 'bottom:max(14px,env(safe-area-inset-bottom))', 'left:50%', 'transform:translateX(-50%)',
     'z-index:10', 'padding:12px 22px', 'border:0', 'border-radius:999px', 'background:#ff9f1c', 'color:#fff',

@@ -15,7 +15,7 @@ import { RewardScene } from './scenes/RewardScene';
 import { DinosScene } from './scenes/DinosScene';
 import { LikeScene } from './scenes/LikeScene';
 import { SchoolScene } from './scenes/SchoolScene';
-import { setupUpdater } from './ui/updater';
+import { setupUpdater, showPill } from './ui/updater';
 
 async function start() {
   // text is drawn once: wait for the fonts so it never shows in a fallback font
@@ -31,5 +31,20 @@ async function start() {
 
 setupUpdater();
 
+/** Phones freeze web games in odd ways (graphics lost in the background, a screen that throws). Never leave the child stuck:
+ *  reload (the progress lives in localStorage) or offer a big "Tap to try again". */
+function setupSafetyNets(game: Phaser.Game) {
+  game.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); location.reload(); });
+  let hiddenAt = 0;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) hiddenAt = Date.now();
+    else if (hiddenAt && Date.now() - hiddenAt > 120_000) location.reload();      // came back after 2+ minutes: start clean
+  });
+  window.addEventListener('error', (e) => {
+    if (/ResizeObserver/i.test(e.message)) return;
+    showPill(() => location.reload(), '🔄 Oops! Tap to try again', 'rescue-pill');
+  });
+}
+
 // handy for automated checks in the browser console
-void start().then((game) => { (window as unknown as { __game: Phaser.Game }).__game = game; });
+void start().then((game) => { (window as unknown as { __game: Phaser.Game }).__game = game; setupSafetyNets(game); });
