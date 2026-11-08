@@ -247,3 +247,14 @@ export function speakerButton(scene: Phaser.Scene, x: number, y: number, r: numb
   hit.on('pointerdown', () => { scene.tweens.add({ targets: [g, icon], scale: 0.88, duration: 70, yoyo: true }); onTap(); });
   return c;
 }
+
+/** A small, quiet name label (soft white pill) so "he / she" can be tied to a character. */
+export function nameTag(scene: Phaser.Scene, x: number, y: number, text: string, parent?: Phaser.GameObjects.Container): Phaser.GameObjects.Container {
+  const t = scene.add.text(0, -1, text, { fontFamily: FONT_TITLE, fontSize: '27px', fontStyle: 'bold', color: '#5a3200' }).setOrigin(0.5);
+  const w = t.width + 30, h = t.height + 8;
+  const g = scene.add.graphics();
+  g.fillStyle(0xffffff, 0.82).fillRoundedRect(-w / 2, -h / 2, w, h, h / 2);
+  const c = scene.add.container(x, y, [g, t]).setDepth(12);
+  parent?.add(c);
+  return c;
+}

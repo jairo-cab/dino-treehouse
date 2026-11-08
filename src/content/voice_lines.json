@@ -6,12 +6,6 @@
     "pitch": 1.38
   },
   {
-    "key": "hi-my-names-pip",
-    "voice": "bf_lily",
-    "text": "Hi! My name's Pip.",
-    "pitch": 1.38
-  },
-  {
     "key": "im-six-years-old",
     "voice": "bf_lily",
     "text": "I'm six years old.",
@@ -310,12 +304,6 @@
     "voice": "bm_lewis",
     "text": "I like the robot.",
     "pitch": 1.25
-  },
-  {
-    "key": "hi-my-names-ruby",
-    "voice": "bf_alice",
-    "text": "Hi! My name's Ruby.",
-    "pitch": 1.3
   },
   {
     "key": "im-nine-years-old",
@@ -719,12 +707,6 @@
     "pitch": 1.45
   },
   {
-    "key": "hi-my-names-blu",
-    "voice": "bm_george",
-    "text": "Hi! My name's Blu.",
-    "pitch": 1.25
-  },
-  {
     "key": "im-five-years-old",
     "voice": "bm_george",
     "text": "I'm five years old.",
@@ -735,12 +717,6 @@
     "voice": "bm_george",
     "text": "I like balls.",
     "pitch": 1.25
-  },
-  {
-    "key": "hi-my-names-sunny",
-    "voice": "bf_emma",
-    "text": "Hi! My name's Sunny.",
-    "pitch": 1.4
   },
   {
     "key": "im-four-years-old",
@@ -755,12 +731,6 @@
     "pitch": 1.4
   },
   {
-    "key": "hi-my-names-rosie",
-    "voice": "bf_alice",
-    "text": "Hi! My name's Rosie.",
-    "pitch": 1.45
-  },
-  {
     "key": "im-three-years-old",
     "voice": "bf_alice",
     "text": "I'm three years old.",
@@ -773,12 +743,6 @@
     "pitch": 1.45
   },
   {
-    "key": "hi-my-names-inky",
-    "voice": "bm_fable",
-    "text": "Hi! My name's Inky.",
-    "pitch": 1.25
-  },
-  {
     "key": "im-two-years-old",
     "voice": "bm_fable",
     "text": "I'm two years old.",
@@ -789,12 +753,6 @@
     "voice": "bm_fable",
     "text": "I like robots.",
     "pitch": 1.25
-  },
-  {
-    "key": "hi-my-names-snowy",
-    "voice": "bf_isabella",
-    "text": "Hi! My name's Snowy.",
-    "pitch": 1.45
   },
   {
     "key": "i-like-trains-and-robots",
@@ -1054,11 +1012,6 @@
     "text": "What's your name? I'm Lola."
   },
   {
-    "key": "this-is-ruby-her-schoolbag-is-blue",
-    "voice": "bf_emma",
-    "text": "This is Ruby. Her schoolbag is blue."
-  },
-  {
     "key": "there-is-a-bed",
     "voice": "bf_emma",
     "text": "There is a bed."
@@ -1191,5 +1144,52 @@
     "voice": "bf_isabella",
     "text": "I'm a girl.",
     "pitch": 1.45
+  },
+  {
+    "key": "hi-my-names-mark",
+    "voice": "bf_lily",
+    "text": "Hi! My name's Mark.",
+    "pitch": 1.38
+  },
+  {
+    "key": "hi-my-names-sara",
+    "voice": "bf_alice",
+    "text": "Hi! My name's Sara.",
+    "pitch": 1.3
+  },
+  {
+    "key": "hi-my-names-harry",
+    "voice": "bm_george",
+    "text": "Hi! My name's Harry.",
+    "pitch": 1.25
+  },
+  {
+    "key": "hi-my-names-mia",
+    "voice": "bf_emma",
+    "text": "Hi! My name's Mia.",
+    "pitch": 1.4
+  },
+  {
+    "key": "hi-my-names-nina",
+    "voice": "bf_alice",
+    "text": "Hi! My name's Nina.",
+    "pitch": 1.45
+  },
+  {
+    "key": "hi-my-names-frank",
+    "voice": "bm_fable",
+    "text": "Hi! My name's Frank.",
+    "pitch": 1.25
+  },
+  {
+    "key": "hi-my-names-luna",
+    "voice": "bf_isabella",
+    "text": "Hi! My name's Luna.",
+    "pitch": 1.45
+  },
+  {
+    "key": "this-is-sara-her-schoolbag-is-blue",
+    "voice": "bf_emma",
+    "text": "This is Sara. Her schoolbag is blue."
   }
 ]

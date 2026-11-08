@@ -13,15 +13,15 @@ export interface Dino {
 
 // Names and details are placeholders chosen by Claude: change them here (and re-run tools/make_voices.py).
 export const DINOS: Dino[] = [
-  { key: 'pip', name: 'Pip', age: 'six', likes: 'the train', voice: 'bf_lily', pitch: 1.38, host: 'Bedroom' },
+  { key: 'pip', name: 'Mark', age: 'six', likes: 'the train', voice: 'bf_lily', pitch: 1.38, host: 'Bedroom' },
   { key: 'lola', name: 'Lola', age: 'seven', likes: 'the ball', voice: 'bf_isabella', pitch: 1.3, host: 'Count' },
   { key: 'bruno', name: 'Bruno', age: 'eight', likes: 'the robot', voice: 'bm_lewis', pitch: 1.25, host: 'Spell' },
-  { key: 'ruby', name: 'Ruby', age: 'nine', likes: 'the teddy bear', voice: 'bf_alice', pitch: 1.3, host: 'Paint' },
-  { key: 'stego', name: 'Blu', age: 'five', likes: 'balls', voice: 'bm_george', pitch: 1.25, host: '' },
-  { key: 'brachio', name: 'Sunny', age: 'four', likes: 'teddy bears', voice: 'bf_emma', pitch: 1.4, host: '' },
-  { key: 'ptero', name: 'Rosie', age: 'three', likes: 'trains', voice: 'bf_alice', pitch: 1.45, host: '' },
-  { key: 'shadow', name: 'Inky', age: 'two', likes: 'robots', voice: 'bm_fable', pitch: 1.25, host: '' },
-  { key: 'para', name: 'Snowy', age: 'one', likes: 'trains and robots', voice: 'bf_isabella', pitch: 1.45, host: '' },
+  { key: 'ruby', name: 'Sara', age: 'nine', likes: 'the teddy bear', voice: 'bf_alice', pitch: 1.3, host: 'Paint' },
+  { key: 'stego', name: 'Harry', age: 'five', likes: 'balls', voice: 'bm_george', pitch: 1.25, host: '' },
+  { key: 'brachio', name: 'Mia', age: 'four', likes: 'teddy bears', voice: 'bf_emma', pitch: 1.4, host: '' },
+  { key: 'ptero', name: 'Nina', age: 'three', likes: 'trains', voice: 'bf_alice', pitch: 1.45, host: '' },
+  { key: 'shadow', name: 'Frank', age: 'two', likes: 'robots', voice: 'bm_fable', pitch: 1.25, host: '' },
+  { key: 'para', name: 'Luna', age: 'one', likes: 'trains and robots', voice: 'bf_isabella', pitch: 1.45, host: '' },
 ];
 export const EARNABLE = DINOS.filter((d) => d.key !== 'pip');   // Pip is always there; the others are won with eggs
 

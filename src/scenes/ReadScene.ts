@@ -3,7 +3,7 @@ import { DINOS, isOwned } from '../content/dinos';
 import { PRAISE, slug } from '../content/bedroom';
 import { CIRCLE, COMPLETE, circleKey, filled, filledKey, type Circle, type Complete, type Option, type DinoPic } from '../content/read';
 import { offerEgg } from '../ui/reward';
-import { FONT_TITLE, W, bubble, burst, button, chip, cover, fitHeight, homeButton, panel, progress, speak } from '../ui/helpers';
+import { FONT_TITLE, W, bubble, burst, button, chip, cover, fitHeight, homeButton, nameTag, panel, progress, speak } from '../ui/helpers';
 
 type Round = { kind: 'complete'; c: Complete } | { kind: 'circle'; c: Circle };
 
@@ -133,7 +133,7 @@ export class ReadScene extends Phaser.Scene {
         const x = W / 2 + (i - (dinos.length - 1) / 2) * 280;
         const im = this.add.image(x, y + 150, `${key}_${isOwnedFace(key, face)}`).setOrigin(0.5, 1).setDepth(5);
         im.setScale(Math.min(330 / im.height, 300 / im.width));
-        this.objs.push(im);
+        this.objs.push(im, nameTag(this, x, y + 182, dinoName(key)));
       });
     }
     if (objs) {
@@ -153,9 +153,11 @@ export class ReadScene extends Phaser.Scene {
     const both = dinos.length > 0 && objs.length > 0, badge = !!opt.badge;
     const dx = both || badge ? -120 : 0, gap = dinos.length > 1 ? 210 : 0;
     dinos.forEach(([key, face], i) => {
-      const im = this.add.image(dx + (i - (dinos.length - 1) / 2) * gap, 105, `${key}_${isOwnedFace(key, face)}`).setOrigin(0.5, 1);
-      im.setScale(Math.min(215 / im.height, 200 / im.width));
+      const x = dx + (i - (dinos.length - 1) / 2) * gap;
+      const im = this.add.image(x, 78, `${key}_${isOwnedFace(key, face)}`).setOrigin(0.5, 1);
+      im.setScale(Math.min(190 / im.height, 200 / im.width));
       card.add(im);
+      nameTag(this, x, 100, dinoName(key), card);
     });
     const size = both ? 100 : Math.min(150, 560 / Math.max(1, objs.length));
     objs.forEach((o, i) => {
@@ -211,6 +213,8 @@ export class ReadScene extends Phaser.Scene {
 
   protected ceremony() { /* overridden by GraduationScene */ }
 }
+
+const dinoName = (key: string): string => DINOS.find((d) => d.key === key)?.name ?? key;
 
 /** Faces exist for every dino; keep a safe fallback so a typo in the bank never shows a missing texture. */
 function isOwnedFace(key: string, face: string): string {

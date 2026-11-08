@@ -17,7 +17,12 @@
       "dislikes": [
         "ball",
         "teddy_bear"
-      ]
+      ],
+      "intro": {
+        "name": "Mark",
+        "age": "six",
+        "likes": "the train"
+      }
     },
     "lola": {
       "he": false,
@@ -56,7 +61,12 @@
       "dislikes": [
         "ball",
         "robot"
-      ]
+      ],
+      "intro": {
+        "name": "Sara",
+        "age": "nine",
+        "likes": "the teddy bear"
+      }
     },
     "stego": {
       "he": true,
@@ -71,7 +81,7 @@
         "teddy_bear"
       ],
       "intro": {
-        "name": "Blu",
+        "name": "Harry",
         "age": "five",
         "likes": "balls"
       }
@@ -89,7 +99,7 @@
         "train"
       ],
       "intro": {
-        "name": "Sunny",
+        "name": "Mia",
         "age": "four",
         "likes": "teddy bears"
       }
@@ -107,7 +117,7 @@
         "robot"
       ],
       "intro": {
-        "name": "Rosie",
+        "name": "Nina",
         "age": "three",
         "likes": "trains"
       }
@@ -125,7 +135,7 @@
         "train"
       ],
       "intro": {
-        "name": "Inky",
+        "name": "Frank",
         "age": "two",
         "likes": "robots"
       }
@@ -143,7 +153,7 @@
         "teddy_bear"
       ],
       "intro": {
-        "name": "Snowy",
+        "name": "Luna",
         "age": "one",
         "likes": "trains and robots"
       }

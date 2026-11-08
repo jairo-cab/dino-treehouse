@@ -5,7 +5,7 @@ import {
   THANKS, TASTES, answer, dinoKey, narratorKey, question, sayDislike, sayDislikes, sayLike, type Toy,
 } from '../content/likes';
 import { offerEgg } from '../ui/reward';
-import { W, bubble, burst, button, chip, cover, fitHeight, homeButton, panel, popIn, progress, speak } from '../ui/helpers';
+import { W, bubble, burst, button, chip, cover, fitHeight, homeButton, nameTag, panel, popIn, progress, speak } from '../ui/helpers';
 
 type Kind = 'give' | 'give2' | 'ask';
 interface Round { kind: Kind; dino: Dino; likeToy?: Toy; toy?: Toy; yes?: boolean }
@@ -36,6 +36,7 @@ export class LikeScene extends Phaser.Scene {
     panel(this, 24, 270, W - 48, 480);
     this.rounds = this.makeRounds();
     this.dinoImg = fitHeight(this.add.image(W / 2, 1262, 'pip_neutral'), 400).setOrigin(0.5, 1).setDepth(3);
+    this.tag = nameTag(this, W / 2, 1236, '');
     this.startRound();
   }
 
@@ -55,7 +56,14 @@ export class LikeScene extends Phaser.Scene {
     });
   }
 
+  private tag!: Phaser.GameObjects.Container;
   private face(f: 'neutral' | 'happy' | 'sad' | 'surprised') { this.dinoImg.setTexture(`${this.round.dino.key}_${f}`); }
+  private setTag(name: string) {
+    const t = this.tag.list[1] as Phaser.GameObjects.Text, g = this.tag.list[0] as Phaser.GameObjects.Graphics;
+    t.setText(name);
+    const w = t.width + 30, h = t.height + 8;
+    g.clear().fillStyle(0xffffff, 0.82).fillRoundedRect(-w / 2, -h / 2, w, h, h / 2);
+  }
 
   private startRound() {
     this.prog.set(this.index);
@@ -63,6 +71,7 @@ export class LikeScene extends Phaser.Scene {
     this.roundObjs = []; this.mistakes = 0; this.locked = false; this.clearHint();
     const r = this.round, t = TASTES[r.dino.key];
     this.face('neutral');
+    this.setTag(r.dino.name);
     this.dinoImg.setX(W / 2);
     this.tweens.add({ targets: this.dinoImg, y: { from: 1290, to: 1262 }, duration: 200 });
     this.bubbleBox?.destroy();
