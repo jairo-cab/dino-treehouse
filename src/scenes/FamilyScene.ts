@@ -91,13 +91,9 @@ export class FamilyScene extends Phaser.Scene {
     if (m === answer) {
       this.locked = true; this.clearHint();
       burst(this, card.x, card.y, 24);
-      const line = info(answer).line;
-      this.time.delayedCall(900, () => {
-        this.bubbleBox?.destroy();
-        this.bubbleBox = bubble(this, W / 2, 150, 660, line, key(line));
-        speak(this, key(line));                                    // "She's my grandma."
-      });
-      this.time.delayedCall(kind === 'where' ? 2900 : 3100, () => this.next());
+      // the word was just spoken by the tap itself: no need to say it again, only a short "Great!"
+      this.time.delayedCall(1100, () => speak(this, slug(PRAISE[this.index % PRAISE.length])));
+      this.time.delayedCall(2000, () => this.next());
     } else {
       this.mistakes++;
       this.tweens.add({ targets: card, x: card.x + 12, duration: 50, yoyo: true, repeat: 3 });
