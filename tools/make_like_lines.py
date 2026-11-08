@@ -28,6 +28,10 @@ for d, v in likes['dinos'].items():
         i = v['intro']
         for t in (f"Hi! My name's {i['name']}.", f"I'm {i['age']} {'year' if i['age'] == 'one' else 'years'} old.", f"I like {i['likes']}."):
             want.append((slug(t), v['voice'], t, v['pitch']))
+# "I'm a boy." / "I'm a girl." in each dino's own voice (every dino, including the first four)
+for d, v in likes['dinos'].items():
+    t = "I'm a boy." if v['he'] else "I'm a girl."
+    want.append((f'{d}-{slug(t)}', v['voice'], t, v['pitch']))
 for pron in ('he', 'she'):
     for t in plural:
         q = f'Does {pron} like {plural[t]}?'

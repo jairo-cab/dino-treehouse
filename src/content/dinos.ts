@@ -1,4 +1,5 @@
 import { slug } from './bedroom';
+import { TASTES } from './likes';
 
 export interface Dino {
   key: string;        // texture prefix: <key>_neutral, <key>_happy ...
@@ -24,8 +25,13 @@ export const DINOS: Dino[] = [
 ];
 export const EARNABLE = DINOS.filter((d) => d.key !== 'pip');   // Pip is always there; the others are won with eggs
 
-export const introLines = (d: Dino): string[] => [`Hi! My name's ${d.name}.`, `I'm ${d.age} ${d.age === 'one' ? 'year' : 'years'} old.`, `I like ${d.likes}.`];
-export const introKeys = (d: Dino): string[] => introLines(d).map(slug);
+export const isBoy = (d: Dino): boolean => TASTES[d.key]?.he ?? true;
+export const introLines = (d: Dino): string[] => [
+  `Hi! My name's ${d.name}.`, isBoy(d) ? "I'm a boy." : "I'm a girl.",
+  `I'm ${d.age} ${d.age === 'one' ? 'year' : 'years'} old.`, `I like ${d.likes}.`,
+];
+// the boy/girl line is spoken by each dino's own voice, so its audio key carries the dino's key
+export const introKeys = (d: Dino): string[] => introLines(d).map((l, i) => (i === 1 ? `${d.key}-${slug(l)}` : slug(l)));
 
 // --- collection, saved on this device only (no accounts, no data leaves the phone)
 const KEY = 'dino-treehouse-collection';

@@ -61,7 +61,7 @@ export class DinosScene extends Phaser.Scene {
     const d = DINOS.find((x) => x.key === key)!;
     const keys = introKeys(d), lines = introLines(d);
     const play = (i: number) => {
-      if (i >= 3) { this.box?.destroy(); return; }
+      if (i >= lines.length) { this.box?.destroy(); return; }
       this.box?.destroy();
       this.box = bubble(this, W / 2, 1180, 640, lines[i], keys[i]);
       this.sound.stopAll();

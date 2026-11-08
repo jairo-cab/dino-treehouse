@@ -4,7 +4,8 @@ import { H, W, bubble, burst, cover, fitHeight, motes, shadow, speak, vignette }
 interface Line { text: string; audio: string; face: string }
 const LINES: Line[] = [
   { text: "Hi! My name's Pip.", audio: 'hi-my-names-pip', face: 'pip_happy' },
-  { text: "I'm six years old.", audio: 'im-six-years-old', face: 'pip_talk' },
+  { text: "I'm a boy.", audio: 'pip-im-a-boy', face: 'pip_talk' },
+  { text: "I'm six years old.", audio: 'im-six-years-old', face: 'pip_happy' },
   { text: "Let's play!", audio: 'lets-play', face: 'pip_happy' },
 ];
 

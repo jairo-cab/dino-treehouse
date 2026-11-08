@@ -68,7 +68,7 @@ export class RewardScene extends Phaser.Scene {
   private showLine() {
     const keys = introKeys(this.dino);
     this.box?.destroy();
-    this.pic?.setTexture(`${this.dino.key}_${this.line === 1 ? 'talk' : 'happy'}`);
+    this.pic?.setTexture(`${this.dino.key}_${this.line === 2 ? 'talk' : 'happy'}`);
     this.box = bubble(this, W / 2, 230, 640, introLines(this.dino)[this.line], keys[this.line]);
     speak(this, keys[this.line]);
     this.tweens.add({ targets: this.pic, y: '-=24', duration: 140, yoyo: true });
@@ -77,7 +77,7 @@ export class RewardScene extends Phaser.Scene {
   private next() {
     if (this.busy || !this.pic) return;
     this.line++;
-    if (this.line >= 3) {
+    if (this.line >= introLines(this.dino).length) {
       this.busy = true;
       unlock(this.dino.key);
       this.cameras.main.fadeOut(250);
