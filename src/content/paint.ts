@@ -26,3 +26,11 @@ export const PAINT_TASKS: PaintTask[] = [
 ];
 
 export const paintSentence = (t: PaintTask) => `Colour the ${OBJ_NAME[t.obj]} ${t.colour}.`;
+
+/** A fresh set every time: every object once, each with a different colour taken from all 8 of the syllabus. */
+export function makePaintTasks(): PaintTask[] {
+  const shuffle = <T,>(a: T[]): T[] => [...a].sort(() => Math.random() - 0.5);
+  const objs = shuffle(Object.keys(OBJ_NAME) as PaintObj[]);
+  const colours = shuffle(COLOUR_ORDER);
+  return objs.map((obj, i) => ({ obj, colour: colours[i] }));
+}

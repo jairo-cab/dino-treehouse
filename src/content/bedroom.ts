@@ -33,3 +33,14 @@ export const sentenceFor = (t: Task) => `Put the ${TOY_NAME[t.toy]} ${ZONE_PHRAS
 export const slug = (s: string) => s.toLowerCase().replace(/[^a-z' ]/g, '').replace(/'/g, '').trim().replace(/\s+/g, '-');
 
 export const PRAISE = ['Well done!', 'Great!', 'Yes!', 'Super!'];
+
+/** A fresh set of requests every time: any toy x any place, never the same toy twice in a row. */
+export function makeTasks(n = 6): Task[] {
+  const toys = Object.keys(TOY_NAME) as ToyKey[], zones = Object.keys(ZONE_PHRASE) as ZoneKey[];
+  const all: Task[] = toys.flatMap((toy) => zones.map((zone) => ({ toy, zone })));
+  for (let attempt = 0; attempt < 50; attempt++) {
+    const pick = [...all].sort(() => Math.random() - 0.5).slice(0, n);
+    if (pick.every((t, i) => i === 0 || t.toy !== pick[i - 1].toy)) return pick;
+  }
+  return [...all].sort(() => Math.random() - 0.5).slice(0, n);
+}

@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { hostOf } from '../content/dinos';
 import { offerEgg } from '../ui/reward';
-import { PRAISE, TASKS, sentenceFor, slug, type Task, type ToyKey, type ZoneKey } from '../content/bedroom';
+import { PRAISE, makeTasks, sentenceFor, slug, type Task, type ToyKey, type ZoneKey } from '../content/bedroom';
 import { H, W, bubble, burst, button, cover, fitHeight, fitWidth, motes, popIn, shadow, speak, vignette , homeButton, progress } from '../ui/helpers';
 
 const ZONES: Record<ZoneKey, { rect: Phaser.Geom.Rectangle; rest: { x: number; y: number } }> = {
@@ -24,12 +24,15 @@ export class BedroomScene extends Phaser.Scene {
   private locked = false;
   private hint?: Phaser.Tweens.Tween;
   constructor() { super('Bedroom'); }
-  private get task(): Task { return TASKS[this.taskIndex]; }
+  private tasks: Task[] = [];
+  private get task(): Task { return this.tasks[this.taskIndex]; }
 
   create() {
     this.cameras.main.fadeIn(180);
     homeButton(this);
-    this.prog = progress(this, TASKS.length);
+    this.taskIndex = 0;
+    this.tasks = makeTasks(6);
+    this.prog = progress(this, this.tasks.length);
     cover(this, 'bg_bedroom');
     // contact shadows (soft, under every piece)
     shadow(this, 140, 911, 250, 0.35);
@@ -53,9 +56,11 @@ export class BedroomScene extends Phaser.Scene {
       this.tweens.add({ targets: this.pip, y: PIP_Y - 16, duration: 150, yoyo: true, ease: 'Quad.out' });
     } });
     this.add.rectangle(W / 2, TRAY_Y + 10, W - 30, 200, 0x000000, 0.14).setStrokeStyle(0).setDepth(4);
+    const slotsX = Phaser.Utils.Array.Shuffle([120, 270, 420]) as number[];
+    const toyX: Record<ToyKey, number> = { teddy_bear: slotsX[0], ball: slotsX[1], robot: slotsX[2], train: 605 };
     (Object.keys(TOY_HOME) as ToyKey[]).forEach((k) => {
-      const t = fitWidth(this.add.image(TOY_HOME[k].x, TRAY_Y, `obj_${k}`), TOY_HOME[k].w).setDepth(10);
-      t.setData('home', { x: TOY_HOME[k].x, y: TRAY_Y, scale: t.scale });
+      const t = fitWidth(this.add.image(toyX[k], TRAY_Y, `obj_${k}`), TOY_HOME[k].w).setDepth(10);
+      t.setData('home', { x: toyX[k], y: TRAY_Y, scale: t.scale });
       t.setInteractive({ draggable: true, useHandCursor: true });
       this.input.setDraggable(t);
       this.toys.set(k, t);
@@ -149,12 +154,12 @@ export class BedroomScene extends Phaser.Scene {
     });
     this.time.delayedCall(1300, () => {
       this.pip.setTexture(`${hostOf('Bedroom')}_neutral`); this.sendHome(obj); this.taskIndex++;
-      if (this.taskIndex >= TASKS.length) this.finish(); else this.startTask();
+      if (this.taskIndex >= this.tasks.length) this.finish(); else this.startTask();
     });
   }
 
   private finish() {
-    this.prog.set(TASKS.length);
+    this.prog.set(this.tasks.length);
     this.locked = true; this.bubbleBox?.destroy(); this.pip.setTexture(`${hostOf('Bedroom')}_happy`);
     this.bubbleBox = bubble(this, W / 2, 330, 640, 'Well done!', 'well-done');
     speak(this, 'well-done');

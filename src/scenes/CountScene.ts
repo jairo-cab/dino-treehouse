@@ -5,10 +5,13 @@ import { PRAISE, slug } from '../content/bedroom';
 import { W, bubble, burst, button, chip, cover, fitHeight, panel, popIn, speak , homeButton, progress } from '../ui/helpers';
 
 const NUMS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
-const ROUNDS: { obj: string; n: number }[] = [
-  { obj: 'ball', n: 3 }, { obj: 'bed', n: 2 }, { obj: 'lamp', n: 5 },
-  { obj: 'robot', n: 6 }, { obj: 'train', n: 4 }, { obj: 'rug', n: 8 },
-];
+type Round = { obj: string; n: number };
+/** Every game: all six things in a new order, each with a different amount from 2 to 10. */
+function makeRounds(): Round[] {
+  const objs = Phaser.Utils.Array.Shuffle(['ball', 'bed', 'lamp', 'robot', 'train', 'rug']) as string[];
+  const amounts = Phaser.Utils.Array.Shuffle([2, 3, 4, 5, 6, 7, 8, 9, 10]) as number[];
+  return objs.map((obj, i) => ({ obj, n: amounts[i] }));
+}
 const PLURAL: Record<string, string> = { ball: 'balls', bed: 'beds', lamp: 'lamps', robot: 'robots', train: 'trains', rug: 'rugs' };
 
 // Exam format: READ/LISTEN AND COUNT. Structure: "How many balls?" Vocabulary: numbers 1-10, toys, furniture.
@@ -22,13 +25,15 @@ export class CountScene extends Phaser.Scene {
   private keys: Phaser.GameObjects.Container[] = [];
   private hintTween?: Phaser.Tweens.Tween;
   constructor() { super('Count'); }
-  private get round() { return ROUNDS[this.index]; }
+  private rounds: Round[] = [];
+  private get round() { return this.rounds[this.index]; }
 
   create() {
     this.index = 0;
+    this.rounds = makeRounds();
     this.cameras.main.fadeIn(180);
     homeButton(this);
-    this.prog = progress(this, ROUNDS.length);
+    this.prog = progress(this, this.rounds.length);
     cover(this, 'bg_bedroom');
     panel(this, 24, 270, W - 48, 480);
     this.pip = fitHeight(this.add.image(100, 1260, `${hostOf('Count')}_neutral`), 200).setOrigin(0.5, 1).setDepth(3);
@@ -110,12 +115,12 @@ export class CountScene extends Phaser.Scene {
     });
     this.time.delayedCall(1700, () => {
       this.index++;
-      if (this.index >= ROUNDS.length) this.finish(); else this.startRound();
+      if (this.index >= this.rounds.length) this.finish(); else this.startRound();
     });
   }
 
   private finish() {
-    this.prog.set(ROUNDS.length);
+    this.prog.set(this.rounds.length);
     this.roundObjs.forEach((o) => o.destroy()); this.roundObjs = [];
     this.bubbleBox?.destroy();
     this.bubbleBox = bubble(this, W / 2, 400, 640, 'Well done!', 'well-done');

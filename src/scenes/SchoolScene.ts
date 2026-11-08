@@ -82,16 +82,25 @@ export class SchoolScene extends Phaser.Scene {
     this.startRound();
   }
 
+  /** A different lesson every time: the three blocks (stand/sit, open/close, the pencil-case work) come in random order and the
+   *  take out / put away part follows one of three patterns. Orders that are impossible (sit before stand, close before open) never happen. */
   private makeCommands(): Command[] {
-    const three = Phaser.Utils.Array.Shuffle([...ITEMS]).slice(0, 3);
-    const away = Phaser.Utils.Array.Shuffle([...three]);
     const p = () => Math.random() < 0.5;
-    return [
-      { kind: 'stand', please: false }, { kind: 'sit', please: false },
-      { kind: 'open', please: p() }, { kind: 'close', please: p() },
-      ...three.map((item): Command => ({ kind: 'take', item, please: p() })),
-      ...away.map((item): Command => ({ kind: 'put', item, please: p() })),
+    const three = Phaser.Utils.Array.Shuffle([...ITEMS]).slice(0, 3) as Item[];
+    const [a, b, c] = three;
+    const take = (item: Item): Command => ({ kind: 'take', item, please: p() });
+    const put = (item: Item): Command => ({ kind: 'put', item, please: p() });
+    const pattern = Phaser.Math.Between(0, 2);
+    const tidy: Command[] =
+      pattern === 0 ? [take(a), take(b), take(c), ...(Phaser.Utils.Array.Shuffle([a, b, c]) as Item[]).map(put)]
+      : pattern === 1 ? (() => { const first = p() ? a : b, second = first === a ? b : a; return [take(a), take(b), put(first), take(c), put(second), put(c)]; })()
+      : [take(a), put(a), take(b), put(b), take(c), put(c)];
+    const blocks: Command[][] = [
+      [{ kind: 'stand', please: false }, { kind: 'sit', please: false }],
+      [{ kind: 'open', please: p() }, { kind: 'close', please: p() }],
+      tidy,
     ];
+    return (Phaser.Utils.Array.Shuffle(blocks) as Command[][]).flat();
   }
 
   private setBookTexture(open: boolean) {

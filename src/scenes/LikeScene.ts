@@ -45,7 +45,8 @@ export class LikeScene extends Phaser.Scene {
     const start = Phaser.Math.Between(0, owned.length - 1);
     const answers = Phaser.Utils.Array.Shuffle([true, false, Math.random() < 0.5]);
     let a = 0;
-    return KINDS.map((kind, i) => {
+    const kinds = Phaser.Utils.Array.Shuffle([...KINDS]) as Kind[];
+    return kinds.map((kind, i) => {
       const dino = owned[(start + i) % owned.length], t = TASTES[dino.key];
       if (kind === 'ask') {
         const yes = answers[a++];

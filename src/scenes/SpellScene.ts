@@ -4,7 +4,10 @@ import { offerEgg } from '../ui/reward';
 import { PRAISE, slug } from '../content/bedroom';
 import { H, W, bubble, burst, button, chip, cover, makeSlot, setSlotFilled, fitHeight, FONT_TITLE, panel, speak , homeButton, progress, speakerButton } from '../ui/helpers';
 
-const WORDS = ['ball', 'bed', 'lamp', 'rug', 'robot', 'train'];
+// every word has its picture and its voice; each game uses 6 of them in a random order (max 6 letters so the boxes fit)
+const POOL = ['ball', 'bed', 'lamp', 'rug', 'robot', 'train', 'book', 'pen', 'pencil', 'crayon', 'rubber', 'ruler', 'door', 'window'];
+const PICTURE: Record<string, string> = { book: 'obj_book_closed' };
+const picOf = (w: string): string => PICTURE[w] ?? `obj_${w}`;
 const DISTRACTORS = 'aeioustmnrlpdb';
 const SLOT_Y = 880;
 const TILE_Y = 1040;
@@ -22,13 +25,15 @@ export class SpellScene extends Phaser.Scene {
   private slots: { box: Phaser.GameObjects.Image; text: Phaser.GameObjects.Text }[] = [];
   private hintTween?: Phaser.Tweens.Tween;
   constructor() { super('Spell'); }
-  private get word() { return WORDS[this.index]; }
+  private words: string[] = [];
+  private get word() { return this.words[this.index]; }
 
   create() {
     this.index = 0;
+    this.words = (Phaser.Utils.Array.Shuffle([...POOL]) as string[]).slice(0, 6);
     this.cameras.main.fadeIn(180);
     homeButton(this);
-    this.prog = progress(this, WORDS.length);
+    this.prog = progress(this, this.words.length);
     cover(this, 'bg_bedroom');
     panel(this, 24, 270, W - 48, 480);
     this.pip = fitHeight(this.add.image(100, 1260, `${hostOf('Spell')}_neutral`), 200).setOrigin(0.5, 1).setDepth(3);
@@ -47,7 +52,7 @@ export class SpellScene extends Phaser.Scene {
     this.time.delayedCall(250, () => speak(this, 'listen-and-write'));
     this.time.delayedCall(2700, () => { if (!this.locked) speak(this, this.word, false); });
 
-    const pic = fitHeight(this.add.image(W / 2, 470, `obj_${this.word}`), 280);
+    const pic = fitHeight(this.add.image(W / 2, 470, picOf(this.word)), 280);
     if (pic.displayWidth > 420) pic.setScale(420 / pic.width);
     // big speaker: hear the word again
     const sb = speakerButton(this, W - 110, 340, 54, () => speak(this, this.word));
@@ -121,12 +126,12 @@ export class SpellScene extends Phaser.Scene {
     });
     this.time.delayedCall(1800, () => {
       this.index++;
-      if (this.index >= WORDS.length) this.finish(); else this.startRound();
+      if (this.index >= this.words.length) this.finish(); else this.startRound();
     });
   }
 
   private finish() {
-    this.prog.set(WORDS.length);
+    this.prog.set(this.words.length);
     this.roundObjs.forEach((o) => o.destroy()); this.roundObjs = [];
     this.bubbleBox?.destroy();
     this.bubbleBox = bubble(this, W / 2, 400, 640, 'Well done!', 'well-done');

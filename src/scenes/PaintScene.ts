@@ -3,7 +3,7 @@ import { hostOf } from '../content/dinos';
 import { offerEgg } from '../ui/reward';
 import { PRAISE, slug } from '../content/bedroom';
 import {
-  COLOUR_HEX, COLOUR_ORDER, PAINT_TASKS, paintSentence, type ColourKey, type PaintObj, type PaintTask,
+  COLOUR_HEX, COLOUR_ORDER, makePaintTasks, paintSentence, type ColourKey, type PaintObj, type PaintTask,
 } from '../content/paint';
 import { H, W, bubble, burst, button, cover, fitHeight, panel, speak , homeButton, progress } from '../ui/helpers';
 
@@ -29,12 +29,15 @@ export class PaintScene extends Phaser.Scene {
   private hintTweens: Phaser.Tweens.Tween[] = [];
 
   constructor() { super('Paint'); }
-  private get task(): PaintTask { return PAINT_TASKS[this.taskIndex]; }
+  private tasks: PaintTask[] = [];
+  private get task(): PaintTask { return this.tasks[this.taskIndex]; }
 
   create() {
     this.cameras.main.fadeIn(180);
     homeButton(this);
-    this.prog = progress(this, PAINT_TASKS.length);
+    this.taskIndex = 0;
+    this.tasks = makePaintTasks();
+    this.prog = progress(this, this.tasks.length);
     cover(this, 'bg_bedroom');
     // soft card so the objects stand out from the busy room
     panel(this, 24, 330, W - 48, 530);
@@ -133,7 +136,7 @@ export class PaintScene extends Phaser.Scene {
       this.taskIndex++;
       this.selected = null; this.ring.setVisible(false);
       this.swatches.forEach((s) => s.setScale(1));
-      if (this.taskIndex >= PAINT_TASKS.length) this.finish(); else this.startTask();
+      if (this.taskIndex >= this.tasks.length) this.finish(); else this.startTask();
     });
   }
 
@@ -172,7 +175,7 @@ export class PaintScene extends Phaser.Scene {
   }
 
   private finish() {
-    this.prog.set(PAINT_TASKS.length);
+    this.prog.set(this.tasks.length);
     this.locked = true;
     this.bubbleBox?.destroy();
     this.pip.setTexture(`${hostOf('Paint')}_happy`);

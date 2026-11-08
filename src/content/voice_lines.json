@@ -1191,5 +1191,255 @@
     "key": "this-is-sara-her-schoolbag-is-blue",
     "voice": "bf_emma",
     "text": "This is Sara. Her schoolbag is blue."
+  },
+  {
+    "key": "put-the-teddy-bear-on-the-rug",
+    "voice": "bf_emma",
+    "text": "Put the teddy bear on the rug."
+  },
+  {
+    "key": "put-the-ball-on-the-bed",
+    "voice": "bf_emma",
+    "text": "Put the ball on the bed."
+  },
+  {
+    "key": "put-the-ball-in-front-of-the-bookcase",
+    "voice": "bf_emma",
+    "text": "Put the ball in front of the bookcase."
+  },
+  {
+    "key": "put-the-robot-on-the-rug",
+    "voice": "bf_emma",
+    "text": "Put the robot on the rug."
+  },
+  {
+    "key": "put-the-train-on-the-bed",
+    "voice": "bf_emma",
+    "text": "Put the train on the bed."
+  },
+  {
+    "key": "put-the-train-in-front-of-the-bookcase",
+    "voice": "bf_emma",
+    "text": "Put the train in front of the bookcase."
+  },
+  {
+    "key": "colour-the-ball-black",
+    "voice": "bf_emma",
+    "text": "Colour the ball black."
+  },
+  {
+    "key": "colour-the-ball-blue",
+    "voice": "bf_emma",
+    "text": "Colour the ball blue."
+  },
+  {
+    "key": "colour-the-ball-brown",
+    "voice": "bf_emma",
+    "text": "Colour the ball brown."
+  },
+  {
+    "key": "colour-the-ball-green",
+    "voice": "bf_emma",
+    "text": "Colour the ball green."
+  },
+  {
+    "key": "colour-the-ball-orange",
+    "voice": "bf_emma",
+    "text": "Colour the ball orange."
+  },
+  {
+    "key": "colour-the-ball-white",
+    "voice": "bf_emma",
+    "text": "Colour the ball white."
+  },
+  {
+    "key": "colour-the-ball-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the ball yellow."
+  },
+  {
+    "key": "colour-the-bed-black",
+    "voice": "bf_emma",
+    "text": "Colour the bed black."
+  },
+  {
+    "key": "colour-the-bed-brown",
+    "voice": "bf_emma",
+    "text": "Colour the bed brown."
+  },
+  {
+    "key": "colour-the-bed-green",
+    "voice": "bf_emma",
+    "text": "Colour the bed green."
+  },
+  {
+    "key": "colour-the-bed-orange",
+    "voice": "bf_emma",
+    "text": "Colour the bed orange."
+  },
+  {
+    "key": "colour-the-bed-red",
+    "voice": "bf_emma",
+    "text": "Colour the bed red."
+  },
+  {
+    "key": "colour-the-bed-white",
+    "voice": "bf_emma",
+    "text": "Colour the bed white."
+  },
+  {
+    "key": "colour-the-bed-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the bed yellow."
+  },
+  {
+    "key": "colour-the-lamp-black",
+    "voice": "bf_emma",
+    "text": "Colour the lamp black."
+  },
+  {
+    "key": "colour-the-lamp-blue",
+    "voice": "bf_emma",
+    "text": "Colour the lamp blue."
+  },
+  {
+    "key": "colour-the-lamp-brown",
+    "voice": "bf_emma",
+    "text": "Colour the lamp brown."
+  },
+  {
+    "key": "colour-the-lamp-green",
+    "voice": "bf_emma",
+    "text": "Colour the lamp green."
+  },
+  {
+    "key": "colour-the-lamp-orange",
+    "voice": "bf_emma",
+    "text": "Colour the lamp orange."
+  },
+  {
+    "key": "colour-the-lamp-red",
+    "voice": "bf_emma",
+    "text": "Colour the lamp red."
+  },
+  {
+    "key": "colour-the-lamp-white",
+    "voice": "bf_emma",
+    "text": "Colour the lamp white."
+  },
+  {
+    "key": "colour-the-rug-black",
+    "voice": "bf_emma",
+    "text": "Colour the rug black."
+  },
+  {
+    "key": "colour-the-rug-blue",
+    "voice": "bf_emma",
+    "text": "Colour the rug blue."
+  },
+  {
+    "key": "colour-the-rug-brown",
+    "voice": "bf_emma",
+    "text": "Colour the rug brown."
+  },
+  {
+    "key": "colour-the-rug-orange",
+    "voice": "bf_emma",
+    "text": "Colour the rug orange."
+  },
+  {
+    "key": "colour-the-rug-red",
+    "voice": "bf_emma",
+    "text": "Colour the rug red."
+  },
+  {
+    "key": "colour-the-rug-white",
+    "voice": "bf_emma",
+    "text": "Colour the rug white."
+  },
+  {
+    "key": "colour-the-rug-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the rug yellow."
+  },
+  {
+    "key": "colour-the-teddy-bear-black",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear black."
+  },
+  {
+    "key": "colour-the-teddy-bear-blue",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear blue."
+  },
+  {
+    "key": "colour-the-teddy-bear-green",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear green."
+  },
+  {
+    "key": "colour-the-teddy-bear-orange",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear orange."
+  },
+  {
+    "key": "colour-the-teddy-bear-red",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear red."
+  },
+  {
+    "key": "colour-the-teddy-bear-white",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear white."
+  },
+  {
+    "key": "colour-the-teddy-bear-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the teddy bear yellow."
+  },
+  {
+    "key": "colour-the-robot-black",
+    "voice": "bf_emma",
+    "text": "Colour the robot black."
+  },
+  {
+    "key": "colour-the-robot-blue",
+    "voice": "bf_emma",
+    "text": "Colour the robot blue."
+  },
+  {
+    "key": "colour-the-robot-brown",
+    "voice": "bf_emma",
+    "text": "Colour the robot brown."
+  },
+  {
+    "key": "colour-the-robot-green",
+    "voice": "bf_emma",
+    "text": "Colour the robot green."
+  },
+  {
+    "key": "colour-the-robot-red",
+    "voice": "bf_emma",
+    "text": "Colour the robot red."
+  },
+  {
+    "key": "colour-the-robot-white",
+    "voice": "bf_emma",
+    "text": "Colour the robot white."
+  },
+  {
+    "key": "colour-the-robot-yellow",
+    "voice": "bf_emma",
+    "text": "Colour the robot yellow."
+  },
+  {
+    "key": "door",
+    "voice": "bf_emma",
+    "text": "door"
+  },
+  {
+    "key": "window",
+    "voice": "bf_emma",
+    "text": "window"
   }
 ]
