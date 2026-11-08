@@ -12,7 +12,8 @@ from PIL import Image
 from rembg import new_session, remove
 from slice_sheet import OUT, fill_holes
 
-sheet_path, cols, rows, names = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4:]
+args = [a for a in sys.argv[1:] if not a.startswith('--')]
+sheet_path, cols, rows, names = args[0], int(args[1]), int(args[2]), args[3:]
 assert len(names) == cols * rows, 'one name per cell'
 os.makedirs(OUT, exist_ok=True)
 sheet = Image.open(sheet_path).convert('RGB')
@@ -46,6 +47,16 @@ for i, name in enumerate(names):
     x0, y0, x1, y1 = cells[i]
     cell = sheet.crop((max(0, x0 - 8), max(0, y0 - 8), min(w, x1 + 8), min(h, y1 + 8)))
     cut = fill_holes(remove(cell, session=session, post_process_mask=True), cell)
+    if '--largest' in sys.argv:        # drop stray bits (e.g. captions the AI added under a character): keep the biggest shape only
+        import numpy as np
+        from scipy import ndimage
+        a = np.array(cut.getchannel('A')) > 10
+        lab, n = ndimage.label(a, structure=np.ones((3, 3)))
+        if n > 1:
+            sizes = ndimage.sum(a, lab, range(1, n + 1))
+            keep = lab == (int(np.argmax(sizes)) + 1)
+            keep = ndimage.binary_dilation(keep, iterations=4)
+            cut.putalpha(Image.fromarray(((np.array(cut.getchannel('A')) * keep)).astype('uint8')))
     bbox = cut.getchannel('A').point(lambda v: 255 if v > 10 else 0).getbbox()
     piece = cut.crop(bbox)
     scale = 512 / max(piece.size)

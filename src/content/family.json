@@ -1,0 +1,20 @@
+{
+  "members": {
+    "mum":     { "word": "mum",          "he": false, "line": "She's my mum.",          "where": "Where's my mum?" },
+    "dad":     { "word": "dad",          "he": true,  "line": "He's my dad.",           "where": "Where's my dad?" },
+    "grandma": { "word": "grandma",      "he": false, "line": "She's my grandma.",      "where": "Where's my grandma?" },
+    "grandpa": { "word": "grandpa",      "he": true,  "line": "He's my grandpa.",       "where": "Where's my grandpa?" },
+    "sister":  { "word": "sister",       "he": false, "line": "She's my sister.",       "where": "Where's my sister?" },
+    "brother": { "word": "brother",      "he": true,  "line": "He's my brother.",       "where": "Where's my brother?" },
+    "baby":    { "word": "baby brother", "he": true,  "line": "He's my baby brother.",  "where": "Where's my baby brother?" },
+    "dog":     { "word": "dog",          "he": true,  "line": "He's my dog.",           "where": "Where's my dog?" }
+  },
+  "clues": [
+    { "text": "She's old.",   "answer": "grandma", "others": ["mum", "sister"] },
+    { "text": "He's old.",    "answer": "grandpa", "others": ["dad", "brother"] },
+    { "text": "She's young.", "answer": "sister",  "others": ["mum", "grandma"] },
+    { "text": "He's young.",  "answer": "brother", "others": ["dad", "grandpa"] },
+    { "text": "He's tall.",   "answer": "dad",     "others": ["brother", "baby"] },
+    { "text": "He's small.",  "answer": "baby",    "others": ["dad", "grandpa"] }
+  ]
+}

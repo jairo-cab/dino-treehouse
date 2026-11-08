@@ -11,6 +11,7 @@ const GAMES = [
   { scene: 'School', label: 'School', icon: 'obj_schoolbag' },
   { scene: 'Read', label: 'Read', icon: 'obj_book_closed' },
   { scene: 'Graduation', label: 'Test', icon: 'icon_grad' },
+  { scene: 'Family', label: 'Family', icon: 'obj_mum' },
 ];
 
 /** Game picker: one illustrated card per game. */
@@ -23,18 +24,14 @@ export class MenuScene extends Phaser.Scene {
     this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0.08);
     motes(this);
     vignette(this);
-    shadow(this, W / 2, 1245, 260, 0.4);
-    const pip = fitHeight(this.add.image(W / 2, 1245, 'pip_happy'), 200).setOrigin(0.5, 1).setDepth(3);
-    this.tweens.add({ targets: pip, y: 1228, duration: 160, yoyo: true, delay: 300 });
     const owned = DINOS.filter((d) => isOwned(d.key)).length;
-    pip.setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('Dinos'));
     bubble(this, W / 2, 150, 600, "Let's play!", 'lets-play');
     this.time.delayedCall(400, () => speak(this, 'lets-play'));
 
     // 3 columns x 3 rows: the 8 games and, in the last slot, the dino collection
     const slots = [...GAMES, { scene: 'Dinos', label: `Dinos ${owned}/${DINOS.length}`, icon: 'pip_happy' }];
     slots.forEach((g, i) => {
-      const x = 125 + (i % 3) * 235, y = 335 + Math.floor(i / 3) * 280;
+      const x = 125 + (i % 3) * 235, y = 322 + Math.floor(i / 3) * 262;
       const card = this.add.container(x, y).setDepth(10);
       const bg = panel(this, -110, -125, 220, 250);
       const icon = this.add.image(0, -28, g.icon);
@@ -45,10 +42,10 @@ export class MenuScene extends Phaser.Scene {
       const hit = this.add.rectangle(0, 0, 220, 250, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       card.add([bg, icon, label, hit]);
       hit.on('pointerdown', () => {
-        this.tweens.add({ targets: card, scale: 0.9, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
+        this.tweens.add({ targets: card, scale: 0.84, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
       });
       card.setScale(0.6).setAlpha(0);
-      this.tweens.add({ targets: card, scale: 1, alpha: 1, duration: 240, delay: 40 + i * 45, ease: 'Back.out' });
+      this.tweens.add({ targets: card, scale: 0.92, alpha: 1, duration: 240, delay: 40 + i * 45, ease: 'Back.out' });
     });
   }
 }

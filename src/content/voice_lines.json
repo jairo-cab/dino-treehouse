@@ -1441,5 +1441,160 @@
     "key": "window",
     "voice": "bf_emma",
     "text": "window"
+  },
+  {
+    "key": "mum",
+    "voice": "bf_emma",
+    "text": "mum"
+  },
+  {
+    "key": "shes-my-mum",
+    "voice": "bf_emma",
+    "text": "She's my mum."
+  },
+  {
+    "key": "wheres-my-mum",
+    "voice": "bf_emma",
+    "text": "Where's my mum?"
+  },
+  {
+    "key": "dad",
+    "voice": "bf_emma",
+    "text": "dad"
+  },
+  {
+    "key": "hes-my-dad",
+    "voice": "bf_emma",
+    "text": "He's my dad."
+  },
+  {
+    "key": "wheres-my-dad",
+    "voice": "bf_emma",
+    "text": "Where's my dad?"
+  },
+  {
+    "key": "grandma",
+    "voice": "bf_emma",
+    "text": "grandma"
+  },
+  {
+    "key": "shes-my-grandma",
+    "voice": "bf_emma",
+    "text": "She's my grandma."
+  },
+  {
+    "key": "wheres-my-grandma",
+    "voice": "bf_emma",
+    "text": "Where's my grandma?"
+  },
+  {
+    "key": "grandpa",
+    "voice": "bf_emma",
+    "text": "grandpa"
+  },
+  {
+    "key": "hes-my-grandpa",
+    "voice": "bf_emma",
+    "text": "He's my grandpa."
+  },
+  {
+    "key": "wheres-my-grandpa",
+    "voice": "bf_emma",
+    "text": "Where's my grandpa?"
+  },
+  {
+    "key": "sister",
+    "voice": "bf_emma",
+    "text": "sister"
+  },
+  {
+    "key": "shes-my-sister",
+    "voice": "bf_emma",
+    "text": "She's my sister."
+  },
+  {
+    "key": "wheres-my-sister",
+    "voice": "bf_emma",
+    "text": "Where's my sister?"
+  },
+  {
+    "key": "brother",
+    "voice": "bf_emma",
+    "text": "brother"
+  },
+  {
+    "key": "hes-my-brother",
+    "voice": "bf_emma",
+    "text": "He's my brother."
+  },
+  {
+    "key": "wheres-my-brother",
+    "voice": "bf_emma",
+    "text": "Where's my brother?"
+  },
+  {
+    "key": "baby-brother",
+    "voice": "bf_emma",
+    "text": "baby brother"
+  },
+  {
+    "key": "hes-my-baby-brother",
+    "voice": "bf_emma",
+    "text": "He's my baby brother."
+  },
+  {
+    "key": "wheres-my-baby-brother",
+    "voice": "bf_emma",
+    "text": "Where's my baby brother?"
+  },
+  {
+    "key": "dog",
+    "voice": "bf_emma",
+    "text": "dog"
+  },
+  {
+    "key": "hes-my-dog",
+    "voice": "bf_emma",
+    "text": "He's my dog."
+  },
+  {
+    "key": "wheres-my-dog",
+    "voice": "bf_emma",
+    "text": "Where's my dog?"
+  },
+  {
+    "key": "shes-old",
+    "voice": "bf_emma",
+    "text": "She's old."
+  },
+  {
+    "key": "hes-old",
+    "voice": "bf_emma",
+    "text": "He's old."
+  },
+  {
+    "key": "shes-young",
+    "voice": "bf_emma",
+    "text": "She's young."
+  },
+  {
+    "key": "hes-young",
+    "voice": "bf_emma",
+    "text": "He's young."
+  },
+  {
+    "key": "hes-tall",
+    "voice": "bf_emma",
+    "text": "He's tall."
+  },
+  {
+    "key": "hes-small",
+    "voice": "bf_emma",
+    "text": "He's small."
+  },
+  {
+    "key": "read-and-match",
+    "voice": "bf_emma",
+    "text": "Read and match."
   }
 ]
