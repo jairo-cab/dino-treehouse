@@ -10,6 +10,7 @@ const IMAGES = [
   'obj_bookcase', 'obj_window', 'obj_door',
   'lola_neutral', 'lola_happy', 'lola_sad', 'lola_surprised', 'lola_talk', 'bruno_neutral', 'bruno_happy', 'bruno_sad', 'bruno_surprised', 'bruno_talk', 'ruby_neutral', 'ruby_happy', 'ruby_sad', 'ruby_surprised', 'ruby_talk',
   'stego_neutral', 'stego_happy', 'stego_sad', 'stego_surprised', 'stego_talk', 'brachio_neutral', 'brachio_happy', 'brachio_sad', 'brachio_surprised', 'brachio_talk', 'ptero_neutral', 'ptero_happy', 'ptero_sad', 'ptero_surprised', 'ptero_talk', 'shadow_neutral', 'shadow_happy', 'shadow_sad', 'shadow_surprised', 'shadow_talk', 'para_neutral', 'para_happy', 'para_sad', 'para_surprised', 'para_talk',
+  'bg_school', 'obj_schoolbag', 'obj_book_closed', 'obj_book_open', 'obj_pencil', 'obj_crayon', 'obj_rubber', 'obj_pen', 'obj_pencil_case', 'obj_ruler',
   'icon_toys', 'icon_paint', 'icon_write', 'icon_count',
   'paint_ball', 'paint_bed', 'paint_lamp', 'paint_rug', 'paint_teddy_bear', 'paint_robot',
 ];

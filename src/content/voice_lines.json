@@ -807,5 +807,195 @@
     "voice": "bf_isabella",
     "text": "I'm one year old.",
     "pitch": 1.45
+  },
+  {
+    "key": "stand-up",
+    "voice": "bf_emma",
+    "text": "Stand up!"
+  },
+  {
+    "key": "sit-down",
+    "voice": "bf_emma",
+    "text": "Sit down!"
+  },
+  {
+    "key": "open-your-book",
+    "voice": "bf_emma",
+    "text": "Open your book."
+  },
+  {
+    "key": "close-your-book",
+    "voice": "bf_emma",
+    "text": "Close your book."
+  },
+  {
+    "key": "take-out-your-pencil",
+    "voice": "bf_emma",
+    "text": "Take out your pencil."
+  },
+  {
+    "key": "put-away-your-pencil",
+    "voice": "bf_emma",
+    "text": "Put away your pencil."
+  },
+  {
+    "key": "take-out-your-crayon",
+    "voice": "bf_emma",
+    "text": "Take out your crayon."
+  },
+  {
+    "key": "put-away-your-crayon",
+    "voice": "bf_emma",
+    "text": "Put away your crayon."
+  },
+  {
+    "key": "take-out-your-rubber",
+    "voice": "bf_emma",
+    "text": "Take out your rubber."
+  },
+  {
+    "key": "put-away-your-rubber",
+    "voice": "bf_emma",
+    "text": "Put away your rubber."
+  },
+  {
+    "key": "take-out-your-pen",
+    "voice": "bf_emma",
+    "text": "Take out your pen."
+  },
+  {
+    "key": "put-away-your-pen",
+    "voice": "bf_emma",
+    "text": "Put away your pen."
+  },
+  {
+    "key": "take-out-your-ruler",
+    "voice": "bf_emma",
+    "text": "Take out your ruler."
+  },
+  {
+    "key": "put-away-your-ruler",
+    "voice": "bf_emma",
+    "text": "Put away your ruler."
+  },
+  {
+    "key": "take-out-your-pencil-case",
+    "voice": "bf_emma",
+    "text": "Take out your pencil case."
+  },
+  {
+    "key": "put-away-your-pencil-case",
+    "voice": "bf_emma",
+    "text": "Put away your pencil case."
+  },
+  {
+    "key": "open-your-book-please",
+    "voice": "bf_emma",
+    "text": "Open your book, please."
+  },
+  {
+    "key": "close-your-book-please",
+    "voice": "bf_emma",
+    "text": "Close your book, please."
+  },
+  {
+    "key": "take-out-your-pencil-please",
+    "voice": "bf_emma",
+    "text": "Take out your pencil, please."
+  },
+  {
+    "key": "put-away-your-pencil-please",
+    "voice": "bf_emma",
+    "text": "Put away your pencil, please."
+  },
+  {
+    "key": "take-out-your-crayon-please",
+    "voice": "bf_emma",
+    "text": "Take out your crayon, please."
+  },
+  {
+    "key": "put-away-your-crayon-please",
+    "voice": "bf_emma",
+    "text": "Put away your crayon, please."
+  },
+  {
+    "key": "take-out-your-rubber-please",
+    "voice": "bf_emma",
+    "text": "Take out your rubber, please."
+  },
+  {
+    "key": "put-away-your-rubber-please",
+    "voice": "bf_emma",
+    "text": "Put away your rubber, please."
+  },
+  {
+    "key": "take-out-your-pen-please",
+    "voice": "bf_emma",
+    "text": "Take out your pen, please."
+  },
+  {
+    "key": "put-away-your-pen-please",
+    "voice": "bf_emma",
+    "text": "Put away your pen, please."
+  },
+  {
+    "key": "take-out-your-ruler-please",
+    "voice": "bf_emma",
+    "text": "Take out your ruler, please."
+  },
+  {
+    "key": "put-away-your-ruler-please",
+    "voice": "bf_emma",
+    "text": "Put away your ruler, please."
+  },
+  {
+    "key": "take-out-your-pencil-case-please",
+    "voice": "bf_emma",
+    "text": "Take out your pencil case, please."
+  },
+  {
+    "key": "put-away-your-pencil-case-please",
+    "voice": "bf_emma",
+    "text": "Put away your pencil case, please."
+  },
+  {
+    "key": "book",
+    "voice": "bf_emma",
+    "text": "book"
+  },
+  {
+    "key": "schoolbag",
+    "voice": "bf_emma",
+    "text": "schoolbag"
+  },
+  {
+    "key": "pencil",
+    "voice": "bf_emma",
+    "text": "pencil"
+  },
+  {
+    "key": "crayon",
+    "voice": "bf_emma",
+    "text": "crayon"
+  },
+  {
+    "key": "rubber",
+    "voice": "bf_emma",
+    "text": "rubber"
+  },
+  {
+    "key": "pen",
+    "voice": "bf_emma",
+    "text": "pen"
+  },
+  {
+    "key": "ruler",
+    "voice": "bf_emma",
+    "text": "ruler"
+  },
+  {
+    "key": "pencil-case",
+    "voice": "bf_emma",
+    "text": "pencil case"
   }
 ]

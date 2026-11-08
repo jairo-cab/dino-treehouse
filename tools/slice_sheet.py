@@ -47,7 +47,7 @@ def split_columns(alpha: Image.Image, n: int) -> list[tuple[int, int]]:
     return list(zip(cuts[:-1], cuts[1:]))
 
 
-def split_components(alpha: Image.Image, n: int, grid: bool = False):
+def split_components(alpha: Image.Image, n: int, grid: bool = False, rows: int = 2, min_ratio: float = 0.25):
     """Label the separate shapes in the sheet (one per character) so neighbours never leak into each other.
     Returns n (mask, bbox) pairs sorted left to right, or None if the characters touch each other."""
     f = 4
@@ -73,12 +73,12 @@ def split_components(alpha: Image.Image, n: int, grid: bool = False):
                 comps.append(pts)
     comps.sort(key=len, reverse=True)
     big = comps[:n]
-    if len(big) < n or len(big[-1]) < len(big[0]) * 0.25:
+    if len(big) < n or len(big[-1]) < len(big[0]) * min_ratio:
         return None
     result = []
     if grid:   # row-major order: top row left->right, then bottom row left->right
-        mid_y = sh / 2
-        order = sorted(big, key=lambda c: (sum(y for _, y in c) / len(c) > mid_y, sum(x for x, _ in c) / len(c)))
+        band = lambda c: min(int(sum(y for _, y in c) / len(c) / (sh / rows)), rows - 1)
+        order = sorted(big, key=lambda c: (band(c), sum(x for x, _ in c) / len(c)))
     else:
         order = sorted(big, key=lambda c: sum(x for x, _ in c) / len(c))
     for pts in order:

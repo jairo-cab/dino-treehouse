@@ -8,6 +8,7 @@ const GAMES = [
   { scene: 'Spell', label: 'Write', icon: 'icon_write' },
   { scene: 'Count', label: 'Count', icon: 'icon_count' },
   { scene: 'Like', label: 'Like', icon: 'icon_like' },
+  { scene: 'School', label: 'School', icon: 'obj_schoolbag' },
 ];
 
 /** Game picker: one illustrated card per game. */
@@ -30,7 +31,7 @@ export class MenuScene extends Phaser.Scene {
     this.time.delayedCall(400, () => speak(this, 'lets-play'));
 
     GAMES.forEach((g, i) => {
-      const x = i % 2 === 0 ? 195 : 525, y = 400 + Math.floor(i / 2) * 330;
+      const x = i % 2 === 0 ? 195 : 525, y = 360 + Math.floor(i / 2) * 290;
       const card = this.add.container(x, y).setDepth(10);
       const bg = panel(this, -157, -150, 314, 300);
       const icon = this.add.image(0, -36, g.icon);
@@ -41,10 +42,10 @@ export class MenuScene extends Phaser.Scene {
       const hit = this.add.rectangle(0, 0, 314, 300, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
       card.add([bg, icon, label, hit]);
       hit.on('pointerdown', () => {
-        this.tweens.add({ targets: card, scale: 0.94, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
+        this.tweens.add({ targets: card, scale: 0.82, duration: 80, yoyo: true, onComplete: () => this.scene.start(g.scene) });
       });
-      card.setScale(0.7).setAlpha(0);
-      this.tweens.add({ targets: card, scale: 1, alpha: 1, duration: 240, delay: 40 + i * 50, ease: 'Back.out' });
+      card.setScale(0.6).setAlpha(0);
+      this.tweens.add({ targets: card, scale: 0.88, alpha: 1, duration: 240, delay: 40 + i * 50, ease: 'Back.out' });
     });
   }
 }
