@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { PRAISE, slug } from '../content/bedroom';
-import { CLUES, MEMBERS, info, key, type Member } from '../content/family';
+import { CLUES, MEMBERS, REL, info, key, type Member } from '../content/family';
 import { offerEgg } from '../ui/reward';
 import { W, bubble, burst, button, cover, homeButton, panel, progress, speak } from '../ui/helpers';
 
@@ -76,7 +76,8 @@ export class FamilyScene extends Phaser.Scene {
     const card = this.add.container(x, y).setDepth(10);
     card.add(panel(this, -w / 2, -h / 2, w, h));
     const im = this.add.image(0, 0, `obj_${m}`);
-    im.setScale(Math.min((w - 24) / im.width, (h - 40) / im.height));
+    im.setScale(Math.min((w - 24) / im.width, ((h - 40) * REL[m]) / im.height));      // real proportions: the baby is small, dad is tall
+    im.y = ((h - 40) / 2) * (1 - REL[m]);                                              // everybody stands on the same floor line
     card.add(im);
     const hit = this.add.rectangle(0, 0, w, h, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
     hit.on('pointerdown', onTap);

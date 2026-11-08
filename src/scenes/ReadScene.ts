@@ -1,11 +1,12 @@
 import Phaser from 'phaser';
 import { DINOS, isOwned } from '../content/dinos';
 import { PRAISE, slug } from '../content/bedroom';
-import { CIRCLE, COMPLETE, circleKey, filled, filledKey, type Circle, type Complete, type Option, type DinoPic } from '../content/read';
+import { COMPLETE, allCircles, circleKey, filled, filledKey, type Circle, type Complete, type Option, type DinoPic } from '../content/read';
+import { MEMBERS, REL, info, key as famKey, type Member } from '../content/family';
 import { offerEgg } from '../ui/reward';
 import { FONT_TITLE, W, bubble, burst, button, chip, cover, fitHeight, homeButton, nameTag, panel, progress, speak } from '../ui/helpers';
 
-type Round = { kind: 'complete'; c: Complete } | { kind: 'circle'; c: Circle };
+type Round = { kind: 'complete'; c: Complete } | { kind: 'circle'; c: Circle } | { kind: 'match'; members: Member[] };
 
 /** Reading practice (Read) and the exam simulation (Graduation): same rounds, Graduation adds a ceremony at the end. */
 export class ReadScene extends Phaser.Scene {
@@ -34,7 +35,7 @@ export class ReadScene extends Phaser.Scene {
   }
 
   private pick(): Round[] {
-    const nComplete = this.graduation ? 6 : 5, nCircle = this.graduation ? 4 : 3;
+    const nComplete = this.graduation ? 5 : 4, nCircle = this.graduation ? 3 : 3, nMatch = this.graduation ? 2 : 1;
     // different topics first, so one game never repeats the same grammar point
     const take = <T extends { topic: string }>(all: T[], n: number): T[] => {
       const shuffled = Phaser.Utils.Array.Shuffle([...all]);
@@ -46,7 +47,8 @@ export class ReadScene extends Phaser.Scene {
     };
     const rs: Round[] = [
       ...take(COMPLETE, nComplete).map((c): Round => ({ kind: 'complete', c })),
-      ...take(CIRCLE, nCircle).map((c): Round => ({ kind: 'circle', c })),
+      ...take(allCircles(), nCircle).map((c): Round => ({ kind: 'circle', c })),
+      ...Array.from({ length: nMatch }, (): Round => ({ kind: 'match', members: Phaser.Utils.Array.Shuffle([...MEMBERS]).slice(0, 3) as Member[] })),
     ];
     return Phaser.Utils.Array.Shuffle(rs);
   }
@@ -61,7 +63,9 @@ export class ReadScene extends Phaser.Scene {
     this.clear(); this.mistakes = 0; this.locked = false;
     this.bubbleBox?.destroy();
     const r = this.round;
-    if (r.kind === 'complete') this.startComplete(r.c); else this.startCircle(r.c);
+    if (r.kind === 'complete') this.startComplete(r.c);
+    else if (r.kind === 'circle') this.startCircle(r.c);
+    else this.startMatch(r.members);
   }
 
   // ---- READ AND COMPLETE: a sentence with a gap, three words to choose from
@@ -163,12 +167,90 @@ export class ReadScene extends Phaser.Scene {
     objs.forEach((o, i) => {
       const x = both ? 190 + (i - (objs.length - 1) / 2) * (size + 8) : (i - (objs.length - 1) / 2) * (size + 12);
       const im = this.add.image(x, 0, o);
-      im.setScale(Math.min(size / im.width, size / im.height));
+      const rel = REL[o.replace('obj_', '')];
+      if (rel !== undefined) { im.setScale(Math.min(200 / im.width, (200 * rel) / im.height)); im.y = 100 - im.displayHeight / 2 - 8; }   // family: real sizes, same floor
+      else im.setScale(Math.min(size / im.width, size / im.height));
       card.add(im);
     });
     if (opt.badge) {
       card.add(this.add.circle(215, 0, 62, 0xffffff).setStrokeStyle(8, 0xff9a2e));
       card.add(this.add.text(215, 0, opt.badge, { fontFamily: FONT_TITLE, fontSize: '78px', fontStyle: 'bold', color: '#5a3200' }).setOrigin(0.5));
+    }
+  }
+
+  // ---- READ AND MATCH: tap a sentence, then the person it describes
+  private chips = new Map<Member, Phaser.GameObjects.Container>();
+  private cards = new Map<Member, Phaser.GameObjects.Container>();
+  private done = new Set<Member>();
+  private selected?: Member;
+  private frames: Phaser.GameObjects.Rectangle[] = [];
+
+  private startMatch(members: Member[]) {
+    this.chips.clear(); this.cards.clear(); this.done.clear(); this.selected = undefined; this.frames = [];
+    this.bubbleBox = bubble(this, W / 2, 150, 660, 'Read and match.', 'read-and-match');
+    this.time.delayedCall(250, () => speak(this, 'read-and-match'));
+    const cw = 205, gap = 20, x0 = W / 2 - (3 * cw + 2 * gap) / 2 + cw / 2;
+    (Phaser.Utils.Array.Shuffle([...members]) as Member[]).forEach((m, i) => {
+      const card = this.add.container(x0 + i * (cw + gap), 480).setDepth(10);
+      card.add(panel(this, -cw / 2, -170, cw, 340));
+      const im = this.add.image(0, 0, `obj_${m}`);
+      im.setScale(Math.min((cw - 24) / im.width, (300 * REL[m]) / im.height));
+      im.y = 150 - im.displayHeight / 2;
+      card.add(im);
+      const hit = this.add.rectangle(0, 0, cw, 340, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
+      hit.on('pointerdown', () => this.tapPortrait(m));
+      card.add(hit);
+      this.cards.set(m, card); this.objs.push(card);
+    });
+    (Phaser.Utils.Array.Shuffle([...members]) as Member[]).forEach((m, i) => {
+      const c = this.add.container(W / 2, 800 + i * 130).setDepth(10);
+      const bg = this.add.graphics();
+      const draw = (sel: boolean, ok: boolean) => {
+        bg.clear();
+        bg.fillStyle(ok ? 0x9be8ae : 0xffffff, 0.95).fillRoundedRect(-300, -48, 600, 96, 48);
+        bg.lineStyle(sel ? 10 : 5, ok ? 0x37b863 : sel ? 0xff9a2e : 0xd3c9b8, 1).strokeRoundedRect(-300, -48, 600, 96, 48);
+      };
+      draw(false, false);
+      const t = this.add.text(0, 0, info(m).line, { fontFamily: 'Andika, sans-serif', fontSize: '40px', color: '#2f2a24' }).setOrigin(0.5);
+      const hit = this.add.rectangle(0, 0, 600, 96, 0xffffff, 0.001).setInteractive({ useHandCursor: true });
+      hit.on('pointerdown', () => this.tapSentence(m));
+      c.add([bg, t, hit]);
+      c.setData('draw', draw);
+      this.chips.set(m, c); this.objs.push(c);
+    });
+  }
+
+  private redrawChips() {
+    this.chips.forEach((c, k) => (c.getData('draw') as (s: boolean, o: boolean) => void)(k === this.selected, this.done.has(k)));
+  }
+
+  private tapSentence(m: Member) {
+    if (this.locked || this.done.has(m)) return;
+    speak(this, famKey(info(m).line));
+    this.selected = m;
+    this.redrawChips();
+  }
+
+  private tapPortrait(m: Member) {
+    if (this.locked || this.done.has(m)) return;
+    const card = this.cards.get(m)!;
+    if (!this.selected) { this.tweens.add({ targets: card, scale: 1.05, duration: 90, yoyo: true }); return; }
+    if (this.selected === m) {
+      this.done.add(m); this.selected = undefined; this.redrawChips();
+      burst(this, card.x, card.y, 18);
+      this.frames.push(this.add.rectangle(card.x, card.y, 205, 340).setStrokeStyle(10, 0x37b863).setDepth(11));
+      this.objs.push(this.frames[this.frames.length - 1]);
+      if (this.done.size === 3) {
+        this.locked = true;
+        if (this.mistakes === 0) this.firstTry++;
+        this.time.delayedCall(900, () => speak(this, slug(PRAISE[this.index % PRAISE.length])));
+        this.time.delayedCall(1900, () => this.next());
+      }
+    } else {
+      this.mistakes++;
+      const chip = this.chips.get(this.selected)!;
+      this.tweens.add({ targets: [chip, card], x: '+=12', duration: 50, yoyo: true, repeat: 3 });
+      speak(this, 'try-again', false);
     }
   }
 

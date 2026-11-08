@@ -8,3 +8,6 @@ export const info = (m: Member) => (data.members as Record<string, { word: strin
 export interface Clue { text: string; answer: Member; others: Member[] }
 export const CLUES = data.clues as Clue[];
 export const key = (text: string): string => slug(text);
+
+/** How tall each family member really is (1 = dad): "tall / small" can then be SEEN in the picture. */
+export const REL: Record<string, number> = { dad: 1, mum: 0.94, grandpa: 0.84, grandma: 0.8, brother: 0.72, sister: 0.7, baby: 0.55, dog: 0.48 };
